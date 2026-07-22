@@ -1,0 +1,2826 @@
+{
+  "season": "2025/26",
+  "priorSeason": {
+    "season": "2024/25",
+    "winner": "Oscar",
+    "winnerPoints": 16
+  },
+  "players": [
+    "Dymond",
+    "Spink",
+    "Harry",
+    "Joe",
+    "Tom",
+    "Mark",
+    "Toby",
+    "Oscar",
+    "Eoin",
+    "Fred",
+    "Lucas"
+  ],
+  "questions": [
+    {
+      "slug": "title-winner",
+      "title": "Premier League winner",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "Arsenal",
+      "correctDisplay": "Arsenal",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Manchester United",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Manchester City",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "top-4",
+      "title": "Top 4 teams",
+      "group": "Premier League",
+      "type": "multi-team",
+      "correctText": "Arsenal, Man City, Man U, Villa",
+      "correctDisplay": "Arsenal, Man City, Man U, Villa",
+      "note": "",
+      "maxPoints": 4,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Arsenal, Chelsea, Manchester City, Manchester United",
+          "points": 3,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Arsenal, Chelsea, Liverpool, Manchester City",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "slug": "top-4-order",
+      "title": "Top 4 in exact order",
+      "group": "Premier League",
+      "type": "order-team",
+      "correctText": "Arsenal, Man City, Man U, Villa",
+      "correctDisplay": "Arsenal, Man City, Man U, Villa",
+      "note": "",
+      "maxPoints": 4,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Liv, city, chels, arsenal",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Liverpool \nArsenal \nCity \nChelsea",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Liv, city, chel, ars",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Joe",
+          "raw": "United, ars, chels, city",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Liv, Ars, City, Chelsea",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Chelsea, Liverpool, City, Arsenal",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Liverpool, Arsenal, Manchester City, Cheslea",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Liv City Ars Chels",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Man City, Arsenal, liverpool, Chelsea",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Liv, City, Ars, Chelsea",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 4
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "LivCheMCitArs",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "slug": "relegated",
+      "title": "Relegated teams",
+      "group": "Premier League",
+      "type": "multi-team",
+      "correctText": "Westham, Burnley, Wolves",
+      "correctDisplay": "West Ham, Burnley, Wolves",
+      "note": "",
+      "maxPoints": 3,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Burnley, Sunderland, Wolves",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Burnley, Leeds, Sunderland",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Brentford, Sunderland, Wolves",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Fulham, Leeds, Liverpool",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 3
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Burnley, Sunderland, Wolves",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Brentford, Burnley, Sunderland",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Burnley, Leeds, Sunderland",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Burnley, Sunderland, Wolves",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Brentford, Burnley, Leeds",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Burnley, Leeds, Sunderland",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Brentford, Burnley, Westham",
+          "points": 2,
+          "correct": false,
+          "partial": true,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "slug": "dark-horse-high",
+      "title": "Dark horse (finish surprisingly high)",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "of these options Man U, we all expected them to be shit and they got 3rd",
+      "correctDisplay": "Man U",
+      "note": "Man U finished 3rd after everyone wrote them off.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Everton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Tottenham Hotspur",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Manchester United",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Manchester United",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Everton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Leeds",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Tottenham Hotspur",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Everton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Brighton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Manchester United",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Tottenham Hotspur",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "top-xmas",
+      "title": "Top at Christmas",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "Arsenal",
+      "correctDisplay": "Arsenal",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Manchester United",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Arsenal",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Manchester City",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "surprisingly-low",
+      "title": "Finish surprisingly low",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "Westham, most of us thought they'd be low but not relegated, except lucas who called it",
+      "correctDisplay": "West Ham",
+      "note": "Only Lucas called West Ham going all the way down.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Brentford",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Liverpool",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Bournemouth",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Arsenal",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Bournemouth",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Bournemouth",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Westham",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "tenth",
+      "title": "Bang average — finish 10th",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "Chelsea, Mark and Ben's club",
+      "correctDisplay": "Chelsea",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Brighton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Manchester United",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Everton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Crystal Palace",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Brentford",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Fulham",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Westham",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Brighton",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Aston Villa",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Fulham",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Nottingham Forest",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "first-sacked",
+      "title": "First manager sacked",
+      "group": "Premier League",
+      "type": "single-manager",
+      "correctText": "Nuno Espírito Santo\nReplaced by Ange who only lasted 39 days",
+      "correctDisplay": "Nuno Espirito Santo",
+      "note": "Nuno went first; Ange replaced him and lasted 39 days.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Vito Pereira",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Tempted to just put Chelsea again... But going for Pereira",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Iraola",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Slot",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Le Bris",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Graham Potter",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Daniel Farke",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Pereira",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Daniel Farke",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Farke",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Potter",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "golden-boot",
+      "title": "Golden Boot",
+      "group": "Players",
+      "type": "single-player",
+      "correctText": "Haaland",
+      "correctDisplay": "Haaland",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Joao Pedro",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Erling Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "golden-glove",
+      "title": "Golden Glove",
+      "group": "Players",
+      "type": "single-player",
+      "correctText": "Raya",
+      "correctDisplay": "Raya",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Maguire",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Sanchez",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "David Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Sanchez",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Raya",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Sels",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Alison",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "biggest-flop",
+      "title": "Biggest flop signing",
+      "group": "Players",
+      "type": "single-player",
+      "correctText": "madueke, didn't play a full 90 once, was usually only making cameos off the bench, only 1 goal in the whole season, somehow still good enough to get called up for England\n\nwissa probably the worst that none of us mentioned, terrible drop off after leaving brentford",
+      "correctDisplay": "Madueke",
+      "note": "Madueke: one goal all season, still got an England call-up. (Wissa was arguably worse — nobody picked him.)",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Gyokores",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Mbuemo",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Kudus",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Gyokeres",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Gyokoros",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Benjamin Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Madueke",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Ekitike",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "biggest-success",
+      "title": "Biggest success signing",
+      "group": "Players",
+      "type": "single-player",
+      "correctText": "most of these prediction sucked but with 31 starts and 24 goal involvements pedro is the clear winner\n\ntruffert another shout for this that we missed, he didn't miss a minute for bournemouth and their 11 clean sheets is a big reason they beat most people's expectations and finished in 6th",
+      "correctDisplay": "Joao Pedro",
+      "note": "31 starts, 24 goal involvements — clear winner.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Ekitike",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Writz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Joao Pedro",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Florian Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Isak",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Reijnders",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Reijnders",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "jan-spend",
+      "title": "Most spend in January",
+      "group": "Premier League",
+      "type": "single-team",
+      "correctText": "Manchester City",
+      "correctDisplay": "Man City",
+      "note": "£180m — more than the rest of the league combined.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Nottingham Forest",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Manchester City",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Manchester City",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Manchester City",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Newcastle",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Brentford",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Chelsea",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "crazy",
+      "title": "Craziest prediction that came true (+3)",
+      "group": "Wildcard",
+      "type": "crazy",
+      "correctText": "United will score goals came true but always does\n\nUnited will finish in single figures came true but they've done that in 19 of the last 20 seasons so not that impressive\n\nEverton will keep the same manager came true, they've done that in 4 of the last 10 seasons so fairly unlikley\n\nfire broke out in JAN 2025 at etihad but none this season",
+      "correctDisplay": "Lucas",
+      "note": "\"Everton will keep the same manager\" — came true and genuinely unlikely. Worth +3.",
+      "maxPoints": 3,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "United will score goals",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Liverpool to stay top all season",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Harry",
+          "raw": "United will finish in single figures",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Fire in the stadium",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Game has to be abandoned whilst on play due to weather",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Mark",
+          "raw": "David Coote makes a comeback",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Toby",
+          "raw": "No head coach sackings",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "At least one pitch invasion",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "EPL team will sue Sky Sports and get banned from TV",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Fred",
+          "raw": "A player in the prem comes out the closet as openly gay",
+          "points": 0,
+          "correct": false,
+          "max": 3
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Everton will keep the same manager",
+          "points": 3,
+          "correct": true,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "slug": "prita-winner",
+      "title": "Prita winner",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "Oscar",
+      "correctDisplay": "Oscar",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Dymond",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Oscar",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Harry",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Oscar",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Fred",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Dymond",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "players-relegated",
+      "title": "Two players relegated",
+      "group": "The League",
+      "type": "multi-person",
+      "correctText": "Tom, Dymond",
+      "correctDisplay": "Tom, Dymond",
+      "note": "",
+      "maxPoints": 2,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Fred, Tom",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Fred, Tom",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Dymond, Ben",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Ben, Harry",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 2
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Dymond, Harry",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Tom, Dymond",
+          "points": 2,
+          "correct": true,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Dymond, Harry",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Tom, Dymond",
+          "points": 2,
+          "correct": true,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Tom, Harry",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Dymond, Harry",
+          "points": 1,
+          "correct": false,
+          "partial": true,
+          "max": 2
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Fred, Ben",
+          "points": 0,
+          "correct": false,
+          "partial": false,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "slug": "segunda-winner",
+      "title": "Segunda winner",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "Joe",
+      "correctDisplay": "Joe",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Joe",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Eoin",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Mark",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "segunda-promoted",
+      "title": "Also promoted from the Segunda",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "Eoin",
+      "correctDisplay": "Eoin",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Eoin",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Eoin",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Eoin",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Eoin",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "segunda-last",
+      "title": "Dead last in the Segunda",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "Mark",
+      "correctDisplay": "Mark",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Joe",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Joe",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Joe",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Mark",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Mark",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Joe",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Mark",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "blunder-award",
+      "title": "The Iheanacho Award (biggest blunder)",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "Fred benched watkins in week 37, Watkins had scored 3 goals in the previous 2 matches and went on to score 2 more goals in week 37 scoring 15 points. Fred ended up losing his matchup to Ben by 2 points crowning Ben the league winner",
+      "correctDisplay": "Fred",
+      "note": "Fred benched Watkins in GW37; Watkins scored 15, Fred lost his matchup by 2 and handed Ben the title.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Mark",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Lucas",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Fred",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Spink",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Joe",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "klopp-award",
+      "title": "The Klopp Award (bitchiest excuses)",
+      "group": "The League",
+      "type": "single-person",
+      "correctText": "A tough year for Toby who not only failed to get promoted but also fails to get this award, his bitchiest move this season was to try and block transfers in the final week of the season to have a fair shootout against Eoin\n\nBut Lucas had the bitchiest outburst of excuses when he plummeted down the table in the busy winter period losing 6 games in a row",
+      "correctDisplay": "Lucas",
+      "note": "Lucas's winter meltdown edged Toby's transfer-blocking for the crown.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Lucas",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Ben",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Oscar",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Toby",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "title-gw",
+      "title": "Gameweek the title is decided",
+      "group": "The League",
+      "type": "numeric",
+      "correctText": "37, one of our best seasons",
+      "correctDisplay": "37",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "36",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "34",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Title decided during draft let’s be honest.",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "31",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "35",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "34",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "36",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "37",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "35",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "relegation-gw",
+      "title": "Gameweek of first relegation",
+      "group": "The League",
+      "type": "numeric",
+      "correctText": "36, Tom predicted his own downfall",
+      "correctDisplay": "36",
+      "note": "Tom predicted his own downfall.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "30",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Ridiculous question, no idea.",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "36",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "34",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "30",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "36",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "32",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "34",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "most-fpl-points",
+      "title": "Most FPL points (any player)",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Haaland",
+      "correctDisplay": "Haaland",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Mo Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Bruno",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Palmer",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Mohamed Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "best-first-pick",
+      "title": "Best first-round pick",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Haaland",
+      "correctDisplay": "Haaland",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Bruno F",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Bruno F",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Palmer",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Palmer",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "worst-first-pick",
+      "title": "Worst first-round pick",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Wirtz",
+      "correctDisplay": "Wirtz",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Wirtz",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Bruno F",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Saka",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Wirtz",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Bruno F",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Bruno F",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Saka",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Wirtz",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Wirtz",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Saka",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "highest-forward",
+      "title": "Highest-scoring forward",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Haaland",
+      "correctDisplay": "Haaland",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Isak",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Sesko",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Halland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Joao Pedro",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Aleksander Isak",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Haaland",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "highest-mid",
+      "title": "Highest-scoring midfielder",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Bruno F",
+      "correctDisplay": "Bruno F",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Bruno",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Palmer",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Mohamed Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Salah",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Wirtz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Bruno F",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Palmer",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "highest-defender",
+      "title": "Highest-scoring defender",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Gabriel",
+      "correctDisplay": "Gabriel",
+      "note": "",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Munoz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Kerkez",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Gvadiol",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Maguire",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Cucerella",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Cucurella",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Pedro Porro",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Gabriel",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Kerkez",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Milenkovic",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Ait nouri",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "slug": "dark-horse-player",
+      "title": "Dark horse player (surprisingly high)",
+      "group": "Fantasy",
+      "type": "single-player",
+      "correctText": "Thiago would be the best answer for this scoring 22 goals last season, when it seemed the year before he might not be cut out for the prem\n\nof these answers welbeck is the best shout, the 35 year old scored 126 points last season, had a great run at one point scoring 6 goals in 5 games and was even talked about for england as a kane backup",
+      "correctDisplay": "Welbeck",
+      "note": "Welbeck, 35, scored 126 pts — best of the answers given.",
+      "maxPoints": 1,
+      "answers": [
+        {
+          "predictor": "Dymond",
+          "raw": "Yoro",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Spink",
+          "raw": "Wellbeck",
+          "points": 1,
+          "correct": true,
+          "max": 1
+        },
+        {
+          "predictor": "Harry",
+          "raw": "Wrtiz",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Joe",
+          "raw": "Maguire",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Tom",
+          "raw": "Grealish",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Mark",
+          "raw": "Grealish",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Toby",
+          "raw": "Pedro Porro",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Oscar",
+          "raw": "Ndiaye",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Eoin",
+          "raw": "Grealish",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Fred",
+          "raw": "Milenkovic",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        },
+        {
+          "predictor": "Lucas",
+          "raw": "Reijnders",
+          "points": 0,
+          "correct": false,
+          "max": 1
+        }
+      ]
+    }
+  ]
+}

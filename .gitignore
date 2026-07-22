@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Secrets / credentials (never commit)
+.env
+.env.*
+credentials.json
+*credentials*.json
+gcp-oauth.keys.json
+.gdrive-server-credentials.json
+
+# Logs & OS cruft
+*.log
+.DS_Store
+Thumbs.db
+
+# ─────────────────────────────────────────────────────────────────────────
+# Raw source data — NEVER COMMITTED. The whole data/ folder is local-only:
+#   - the Google Form CSV contains email addresses (PII)
+#   - the last-year write-up is ~6MB of images
+#   - answer-key.json is the scoring source
+# The site is built only from the derived, email-free files in src/data/.
+# Leading slash anchors to repo root so src/data/ is NOT ignored.
+# ─────────────────────────────────────────────────────────────────────────
+/data/

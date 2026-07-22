@@ -1,0 +1,188 @@
+{
+  "season": "2025/26",
+  "priorSeason": {
+    "season": "2024/25",
+    "winner": "Oscar",
+    "winnerPoints": 16
+  },
+  "winner": "Lucas",
+  "winnerPoints": 14,
+  "totalPointsAvailable": 42,
+  "standings": [
+    {
+      "predictor": "Lucas",
+      "points": 14,
+      "hits": 8,
+      "partials": 2,
+      "questions": 31,
+      "rank": 1
+    },
+    {
+      "predictor": "Eoin",
+      "points": 13,
+      "hits": 9,
+      "partials": 3,
+      "questions": 31,
+      "rank": 2
+    },
+    {
+      "predictor": "Fred",
+      "points": 13,
+      "hits": 8,
+      "partials": 4,
+      "questions": 31,
+      "rank": 2
+    },
+    {
+      "predictor": "Oscar",
+      "points": 13,
+      "hits": 7,
+      "partials": 3,
+      "questions": 31,
+      "rank": 2
+    },
+    {
+      "predictor": "Tom",
+      "points": 11,
+      "hits": 6,
+      "partials": 3,
+      "questions": 31,
+      "rank": 5
+    },
+    {
+      "predictor": "Dymond",
+      "points": 11,
+      "hits": 5,
+      "partials": 4,
+      "questions": 31,
+      "rank": 5
+    },
+    {
+      "predictor": "Joe",
+      "points": 10,
+      "hits": 7,
+      "partials": 1,
+      "questions": 31,
+      "rank": 7
+    },
+    {
+      "predictor": "Harry",
+      "points": 10,
+      "hits": 5,
+      "partials": 4,
+      "questions": 31,
+      "rank": 7
+    },
+    {
+      "predictor": "Mark",
+      "points": 7,
+      "hits": 3,
+      "partials": 2,
+      "questions": 31,
+      "rank": 9
+    },
+    {
+      "predictor": "Spink",
+      "points": 7,
+      "hits": 3,
+      "partials": 3,
+      "questions": 31,
+      "rank": 9
+    },
+    {
+      "predictor": "Toby",
+      "points": 7,
+      "hits": 3,
+      "partials": 3,
+      "questions": 31,
+      "rank": 9
+    }
+  ],
+  "highlights": {
+    "loneCorrectCalls": [
+      {
+        "q": "Top at Christmas",
+        "predictor": "Eoin",
+        "raw": "Arsenal"
+      },
+      {
+        "q": "Finish surprisingly low",
+        "predictor": "Lucas",
+        "raw": "Westham"
+      },
+      {
+        "q": "Biggest flop signing",
+        "predictor": "Oscar",
+        "raw": "Madueke"
+      },
+      {
+        "q": "Biggest success signing",
+        "predictor": "Mark",
+        "raw": "Joao Pedro"
+      },
+      {
+        "q": "Craziest prediction that came true (+3)",
+        "predictor": "Lucas",
+        "raw": "Everton will keep the same manager"
+      },
+      {
+        "q": "Segunda winner",
+        "predictor": "Joe",
+        "raw": "Joe"
+      },
+      {
+        "q": "The Iheanacho Award (biggest blunder)",
+        "predictor": "Toby",
+        "raw": "Fred"
+      },
+      {
+        "q": "The Klopp Award (bitchiest excuses)",
+        "predictor": "Dymond",
+        "raw": "Lucas"
+      },
+      {
+        "q": "Gameweek the title is decided",
+        "predictor": "Eoin",
+        "raw": "37"
+      },
+      {
+        "q": "Highest-scoring defender",
+        "predictor": "Oscar",
+        "raw": "Gabriel"
+      },
+      {
+        "q": "Dark horse player (surprisingly high)",
+        "predictor": "Spink",
+        "raw": "Wellbeck"
+      }
+    ],
+    "bigMultiHits": [
+      {
+        "predictor": "Lucas",
+        "raw": "Everton will keep the same manager",
+        "points": 3,
+        "correct": true,
+        "max": 3,
+        "q": "Craziest prediction that came true (+3)"
+      },
+      {
+        "predictor": "Mark",
+        "raw": "Tom, Dymond",
+        "points": 2,
+        "correct": true,
+        "partial": true,
+        "max": 2,
+        "q": "Two players relegated"
+      },
+      {
+        "predictor": "Oscar",
+        "raw": "Tom, Dymond",
+        "points": 2,
+        "correct": true,
+        "partial": true,
+        "max": 2,
+        "q": "Two players relegated"
+      }
+    ]
+  }
+}
