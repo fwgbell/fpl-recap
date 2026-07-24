@@ -274,7 +274,7 @@
         },
         {
           "predictor": "Spink",
-          "raw": "Liverpool \nArsenal \nCity \nChelsea",
+          "raw": "Liverpool \r\nArsenal \r\nCity \r\nChelsea",
           "display": "Liv · Ars · City · Che",
           "key": "liverpool>arsenal>mancity>chelsea",
           "points": 0,
@@ -945,7 +945,7 @@
       "title": "First manager sacked",
       "group": "Premier League",
       "type": "single-manager",
-      "correctText": "Nuno Espírito Santo\nReplaced by Ange who only lasted 39 days",
+      "correctText": "Nuno Espírito Santo\r\nReplaced by Ange who only lasted 39 days",
       "correctDisplay": "Nuno Espirito Santo",
       "note": "Nuno went first; Ange replaced him and lasted 39 days.",
       "maxPoints": 1,
@@ -1278,7 +1278,7 @@
       "title": "Biggest flop signing",
       "group": "Players",
       "type": "single-player",
-      "correctText": "madueke, didn't play a full 90 once, was usually only making cameos off the bench, only 1 goal in the whole season, somehow still good enough to get called up for England\n\nwissa probably the worst that none of us mentioned, terrible drop off after leaving brentford",
+      "correctText": "madueke, didn't play a full 90 once, was usually only making cameos off the bench, only 1 goal in the whole season, somehow still good enough to get called up for England\r\n\r\nwissa probably the worst that none of us mentioned, terrible drop off after leaving brentford",
       "correctDisplay": "Madueke",
       "note": "Madueke: one goal all season, still got an England call-up. (Wissa was arguably worse - nobody picked him.)",
       "maxPoints": 1,
@@ -1389,7 +1389,7 @@
       "title": "Biggest success signing",
       "group": "Players",
       "type": "single-player",
-      "correctText": "most of these prediction sucked but with 31 starts and 24 goal involvements pedro is the clear winner\n\ntruffert another shout for this that we missed, he didn't miss a minute for bournemouth and their 11 clean sheets is a big reason they beat most people's expectations and finished in 6th",
+      "correctText": "most of these prediction sucked but with 31 starts and 24 goal involvements pedro is the clear winner\r\n\r\ntruffert another shout for this that we missed, he didn't miss a minute for bournemouth and their 11 clean sheets is a big reason they beat most people's expectations and finished in 6th",
       "correctDisplay": "Joao Pedro",
       "note": "31 starts, 24 goal involvements - clear winner.",
       "maxPoints": 1,
@@ -1611,7 +1611,7 @@
       "title": "Craziest prediction that came true (+3)",
       "group": "Wildcard",
       "type": "crazy",
-      "correctText": "United will score goals came true but always does\n\nUnited will finish in single figures came true but they've done that in 19 of the last 20 seasons so not that impressive\n\nEverton will keep the same manager came true, they've done that in 4 of the last 10 seasons so fairly unlikley\n\nfire broke out in JAN 2025 at etihad but none this season",
+      "correctText": "United will score goals came true but always does\r\n\r\nUnited will finish in single figures came true but they've done that in 19 of the last 20 seasons so not that impressive\r\n\r\nEverton will keep the same manager came true, they've done that in 4 of the last 10 seasons so fairly unlikley\r\n\r\nfire broke out in JAN 2025 at etihad but none this season",
       "correctDisplay": "Lucas",
       "note": "\"Everton will keep the same manager\" - came true and genuinely unlikely. Worth +3.",
       "maxPoints": 3,
@@ -1622,7 +1622,7 @@
           "display": "United will score goals",
           "key": "united will score goals",
           "points": 0,
-          "correct": true,
+          "correct": false,
           "max": 3
         },
         {
@@ -1640,7 +1640,7 @@
           "display": "United will finish in single figures",
           "key": "united will finish in single figures",
           "points": 0,
-          "correct": true,
+          "correct": false,
           "max": 3
         },
         {
@@ -2399,7 +2399,7 @@
       "title": "The Klopp Award (bitchiest excuses)",
       "group": "The League",
       "type": "single-person",
-      "correctText": "A tough year for Toby who not only failed to get promoted but also fails to get this award, his bitchiest move this season was to try and block transfers in the final week of the season to have a fair shootout against Eoin\n\nBut Lucas had the bitchiest outburst of excuses when he plummeted down the table in the busy winter period losing 6 games in a row",
+      "correctText": "A tough year for Toby who not only failed to get promoted but also fails to get this award, his bitchiest move this season was to try and block transfers in the final week of the season to have a fair shootout against Eoin\r\n\r\nBut Lucas had the bitchiest outburst of excuses when he plummeted down the table in the busy winter period losing 6 games in a row",
       "correctDisplay": "Lucas",
       "note": "Lucas's winter meltdown edged Toby's transfer-blocking for the crown.",
       "maxPoints": 1,
@@ -2954,8 +2954,8 @@
       "title": "Worst first-round pick",
       "group": "Fantasy",
       "type": "single-player",
-      "correctText": "Wirtz",
-      "correctDisplay": "Wirtz",
+      "correctText": "Palmer",
+      "correctDisplay": "Palmer",
       "note": "",
       "maxPoints": 1,
       "answers": [
@@ -2964,8 +2964,8 @@
           "raw": "Wirtz",
           "display": "Wirtz",
           "key": "wirtz",
-          "points": 1,
-          "correct": true,
+          "points": 0,
+          "correct": false,
           "max": 1
         },
         {
@@ -2991,8 +2991,8 @@
           "raw": "Wirtz",
           "display": "Wirtz",
           "key": "wirtz",
-          "points": 1,
-          "correct": true,
+          "points": 0,
+          "correct": false,
           "max": 1
         },
         {
@@ -3027,8 +3027,8 @@
           "raw": "Wirtz",
           "display": "Wirtz",
           "key": "wirtz",
-          "points": 1,
-          "correct": true,
+          "points": 0,
+          "correct": false,
           "max": 1
         },
         {
@@ -3045,8 +3045,8 @@
           "raw": "Wirtz",
           "display": "Wirtz",
           "key": "wirtz",
-          "points": 1,
-          "correct": true,
+          "points": 0,
+          "correct": false,
           "max": 1
         },
         {
@@ -3398,7 +3398,7 @@
       "title": "Dark horse player (surprisingly high)",
       "group": "Fantasy",
       "type": "single-player",
-      "correctText": "Thiago would be the best answer for this scoring 22 goals last season, when it seemed the year before he might not be cut out for the prem\n\nof these answers welbeck is the best shout, the 35 year old scored 126 points last season, had a great run at one point scoring 6 goals in 5 games and was even talked about for england as a kane backup",
+      "correctText": "Thiago would be the best answer for this scoring 22 goals last season, when it seemed the year before he might not be cut out for the prem\r\n\r\nof these answers welbeck is the best shout, the 35 year old scored 126 points last season, had a great run at one point scoring 6 goals in 5 games and was even talked about for england as a kane backup",
       "correctDisplay": "Welbeck",
       "note": "Welbeck, 35, scored 126 pts - best of the answers given.",
       "maxPoints": 1,

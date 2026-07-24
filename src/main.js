@@ -9,6 +9,7 @@ import './style.css';
 import summary from './data/summary.json';
 import predictions from './data/predictions.json';
 import * as C from './content.js';
+import { statFor, leaguePos } from './data/achieved.js';
 import lucasImg from './assets/lucas-excuses.jpeg';
 import tobyImg from './assets/toby-blocking-trades.jpeg';
 import {
@@ -18,6 +19,8 @@ import {
   setupProgress,
   setupScrollspy,
   setupMatrixTooltip,
+  setupFills,
+  setupGridReveal,
   esc,
 } from './lib/ui.js';
 
@@ -141,12 +144,13 @@ function resultsGrid() {
       .join('')}`;
 
   const rows = orderedPlayers
-    .map((name) => {
+    .map((name, ri) => {
       const cells = qs
         .map((q, qi) => {
           const a = byName[name][qi];
           const state = a?.correct ? 'hit' : a?.partial ? 'partial' : 'miss';
-          return `<div class="cell cell--${state}" data-q="${esc(q.title)}" data-who="${esc(name)}" data-pick="${esc(a?.display ?? a?.raw ?? '')}" data-pts="${a?.points ?? 0}" data-state="${state}"></div>`;
+          // --i drives a diagonal, staggered fill-in (top-left → bottom-right).
+          return `<div class="cell cell--fx cell--${state}" style="--i:${qi + ri}" data-q="${esc(q.title)}" data-who="${esc(name)}" data-pick="${esc(a?.display ?? a?.raw ?? '')}" data-pts="${a?.points ?? 0}" data-state="${state}"></div>`;
         })
         .join('');
       return `<div class="cell cell--name">${esc(name)}</div>${cells}`;
@@ -183,6 +187,7 @@ function groupAnswers(answers) {
     const k = a.key ?? (a.raw || '-').trim().toLowerCase();
     if (!groups.has(k)) {
       groups.set(k, {
+        key: k,
         display: a.display ?? ((a.raw || '').trim() || '-'),
         names: [],
         points: a.points,
@@ -199,13 +204,30 @@ function groupAnswers(answers) {
   );
 }
 
-function answerLine(g) {
+const statSpan = (s) => ` <span class="answer-line__stat">(${esc(s)})</span>`;
+
+function answerLine(g, slug) {
   const state = g.correct ? 'hit' : g.partial ? 'partial' : 'miss';
   const icon = state === 'hit' ? '✓' : state === 'partial' ? `${g.points}/${g.max}` : '✕';
+  let val;
+  if (slug === 'players-relegated') {
+    // Multi-person: annotate each named person with their mini-league finish.
+    val = g.display
+      .split(',')
+      .map((part) => {
+        const name = part.trim();
+        const lp = leaguePos(name);
+        return esc(name) + (lp ? statSpan(lp) : '');
+      })
+      .join(', ');
+  } else {
+    const stat = statFor(slug, g.key);
+    val = esc(g.display) + (stat ? statSpan(stat) : '');
+  }
   return `
     <div class="answer-line answer-line--${state}">
       <span class="answer-line__icon ic-${state}">${icon}</span>
-      <span class="answer-line__val">${esc(g.display)}</span>
+      <span class="answer-line__val">${val}</span>
       <span class="answer-line__pts">+${g.points}</span>
       <span class="answer-line__who">${esc(g.names.join(', '))}</span>
     </div>`;
@@ -213,7 +235,7 @@ function answerLine(g) {
 
 function questionCard(q, i) {
   const quip = C.quips[q.slug];
-  const shown = groupAnswers(q.answers).map(answerLine).join('');
+  const shown = groupAnswers(q.answers).map((g) => answerLine(g, q.slug)).join('');
   return `
     <div class="card reveal" data-delay="${(i % 3) + 1}">
       <div class="card__q"><span>${esc(q.title)}</span></div>
@@ -266,7 +288,7 @@ function awards() {
     .map(
       (a, i) => {
         const q = bySlug[a.slug];
-        const picks = q ? groupAnswers(q.answers).map(answerLine).join('') : '';
+        const picks = q ? groupAnswers(q.answers).map((g) => answerLine(g, q.slug)).join('') : '';
         return `
       <div class="award reveal" data-delay="${(i % 3) + 1}">
         <div class="award__crown">${a.crown}</div>
@@ -297,6 +319,203 @@ function awards() {
         <p class="section-lead">Not every prize is for getting things right. Some are for getting things spectacularly, memorably wrong.</p>
       </div>
       <div class="awards">${cards}</div>
+    </div>
+  </section>`;
+}
+
+/* ---------------------------------------------------------- more data */
+const CAT_ORDER = ['Premier League', 'Players', 'Fantasy', 'The League'];
+const CAT_SHORT = {
+  'Premier League': 'Prem',
+  Players: 'Players',
+  Fantasy: 'Fantasy',
+  'The League': 'Prita',
+};
+// The single Wildcard question folds into Premier League — it's one free swing,
+// not a category of its own, and only Lucas ever scored on it (+3).
+const CAT_MERGE = { Wildcard: 'Premier League' };
+
+// Points each predictor banked in each category. Ordered best → worst so it
+// lines up with the scoreboard and The Grid.
+function pointsByCategory() {
+  const ranked = summary.standings.map((s) => s.predictor);
+  const totals = Object.fromEntries(
+    ranked.map((n) => [n, Object.fromEntries(CAT_ORDER.map((g) => [g, 0]))]),
+  );
+  predictions.questions.forEach((q) => {
+    const g = CAT_MERGE[q.group] ?? q.group;
+    q.answers.forEach((a) => {
+      totals[a.predictor][g] += a.points ?? 0;
+    });
+  });
+  // Shared scale across every panel and category, so a bar means the same
+  // length everywhere.
+  const cap = Math.max(
+    1,
+    ...ranked.flatMap((n) => CAT_ORDER.map((g) => totals[n][g])),
+  );
+
+  const panels = summary.standings
+    .map((s, i) => {
+      const name = s.predictor;
+      const rows = CAT_ORDER.map((g) => {
+        const v = totals[name][g];
+        return `
+        <div class="mini__row">
+          <span class="mini__cat">${esc(CAT_SHORT[g])}</span>
+          <span class="mini__track"><span class="mini__fill${v === 0 ? ' is-zero' : ''}" data-w="${(v / cap) * 100}%"></span></span>
+          <span class="mini__val${v === 0 ? ' is-zero' : ''}">${v}</span>
+        </div>`;
+      }).join('');
+      return `
+      <div class="mini reveal" data-delay="${(i % 3) + 1}" data-fills>
+        <div class="mini__head">
+          <span class="mini__name">${medals[s.rank] ?? ''} ${esc(name)}</span>
+          <span class="mini__tot">${s.points} pts</span>
+        </div>
+        <div class="mini__rows">${rows}</div>
+      </div>`;
+    })
+    .join('');
+
+  return `
+    <div class="reveal" style="margin-top:2.8rem">
+      <h3 class="data-sub">${esc(C.moreData.categories.title)}</h3>
+      <p class="section-lead">${esc(C.moreData.categories.lead)}</p>
+    </div>
+    <div class="multiples">${panels}</div>`;
+}
+
+// Scatter: total points (accuracy) vs lone calls (boldness). A lone call is
+// a question where this person's answer was unique — nobody else in the room
+// gave it — regardless of whether it turned out right.
+function accuracyVsBoldness() {
+  const lone = Object.fromEntries(predictions.players.map((n) => [n, 0]));
+  predictions.questions.forEach((q) => {
+    const counts = {};
+    const keyOf = (a) => a.key ?? (a.raw || '').trim().toLowerCase();
+    q.answers.forEach((a) => {
+      const k = keyOf(a);
+      if (!k || k === '-') return;
+      counts[k] = (counts[k] ?? 0) + 1;
+    });
+    q.answers.forEach((a) => {
+      const k = keyOf(a);
+      if (k && k !== '-' && counts[k] === 1) lone[a.predictor] += 1;
+    });
+  });
+  const pts = Object.fromEntries(summary.standings.map((s) => [s.predictor, s.points]));
+
+  // Geometry.
+  const W = 760;
+  const H = 470;
+  const m = { l: 52, r: 26, t: 26, b: 54 };
+  const px0 = m.l;
+  const px1 = W - m.r;
+  const py0 = m.t;
+  const py1 = H - m.b;
+  const maxLone = Math.max(...Object.values(lone));
+  const xDom = [3, Math.max(21, maxLone + 1)];
+  const maxPts = Math.max(...Object.values(pts));
+  const yDom = [4, Math.max(15, maxPts + 1)];
+  const sx = (v) => px0 + ((v - xDom[0]) / (xDom[1] - xDom[0])) * (px1 - px0);
+  const sy = (v) => py1 - ((v - yDom[0]) / (yDom[1] - yDom[0])) * (py1 - py0);
+
+  // Labels sit right of the dot, except: Joe (near the right edge) and Tom
+  // (whose right label would collide with Dymond, tied with him on points).
+  const leftLabel = new Set(['Joe', 'Tom']);
+
+  const xTicks = [5, 10, 15, 20]
+    .map((t) => {
+      const x = sx(t);
+      return `
+      <line x1="${x}" y1="${py0}" x2="${x}" y2="${py1}" class="sc-grid" />
+      <text x="${x}" y="${py1 + 26}" class="sc-axtxt" text-anchor="middle">${t}</text>`;
+    })
+    .join('');
+  const yTicks = [5, 7, 9, 11, 13]
+    .map((t) => {
+      const y = sy(t);
+      return `
+      <line x1="${px0}" y1="${y}" x2="${px1}" y2="${y}" class="sc-grid" />
+      <text x="${px0 - 12}" y="${y + 4}" class="sc-axtxt" text-anchor="end">${t}</text>`;
+    })
+    .join('');
+
+  const dots = summary.standings
+    .map((s) => {
+      const name = s.predictor;
+      const x = sx(lone[name]);
+      const y = sy(pts[name]);
+      const champ = s.rank === 1;
+      const left = leftLabel.has(name);
+      const lx = left ? x - 12 : x + 12;
+      return `
+      <g class="sc-pt${champ ? ' is-champ' : ''}">
+        <title>${esc(name)} — ${pts[name]} pts, ${lone[name]} lone call${lone[name] === 1 ? '' : 's'}</title>
+        <circle cx="${x}" cy="${y}" r="${champ ? 8 : 6}" />
+        <text x="${lx}" y="${y + 4}" class="sc-lbl" text-anchor="${left ? 'end' : 'start'}">${esc(name)}</text>
+      </g>`;
+    })
+    .join('');
+
+  return `
+    <div class="reveal" style="margin-top:3.4rem">
+      <h3 class="data-sub">${esc(C.moreData.scatter.title)}</h3>
+      <p class="section-lead">${esc(C.moreData.scatter.lead)}</p>
+    </div>
+    <div class="scatter reveal">
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Scatter plot of total points (accuracy) against lone calls (boldness), one dot per predictor" preserveAspectRatio="xMidYMid meet">
+        ${yTicks}${xTicks}
+        <text x="${(px0 + px1) / 2}" y="${H - 8}" class="sc-axttl" text-anchor="middle">Lone calls — boldness  →</text>
+        <text transform="translate(14 ${(py0 + py1) / 2}) rotate(-90)" class="sc-axttl" text-anchor="middle">Total points — accuracy  →</text>
+        ${dots}
+      </svg>
+    </div>`;
+}
+
+// Every question ranked by how many of the eleven got it right.
+function questionDifficulty() {
+  const stats = predictions.questions.map((q) => ({
+    title: q.title,
+    hits: q.answers.filter((a) => a.correct).length,
+    partials: q.answers.filter((a) => a.partial && !a.correct).length,
+    n: q.answers.length,
+  }));
+  const maxHits = Math.max(...stats.map((s) => s.hits));
+  stats.sort((a, b) => b.hits - a.hits || b.partials - a.partials || a.title.localeCompare(b.title));
+
+  const rows = stats
+    .map(
+      (s) => `
+      <div class="qr">
+        <span class="qr__title" title="${esc(s.title)}">${esc(s.title)}</span>
+        <span class="qr__track"><span class="qr__fill${s.hits === 0 ? ' is-zero' : ''}" data-w="${(s.hits / maxHits) * 100}%"></span></span>
+        <span class="qr__n${s.hits === 0 ? ' is-zero' : ''}">${s.hits}<small>/${s.n}</small></span>
+      </div>`,
+    )
+    .join('');
+
+  return `
+    <div class="reveal" style="margin-top:3.4rem">
+      <h3 class="data-sub">${esc(C.moreData.questions.title)}</h3>
+      <p class="section-lead">${esc(C.moreData.questions.lead)}</p>
+    </div>
+    <div class="qrank reveal" data-fills>${rows}</div>`;
+}
+
+function moreData() {
+  return `
+  <section class="section" id="data">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">${esc(C.moreData.eyebrow)}</div>
+        <h2 class="section-title">${esc(C.moreData.title)}</h2>
+        <p class="section-lead">${esc(C.moreData.lead)}</p>
+      </div>
+      ${pointsByCategory()}
+      ${accuracyVsBoldness()}
+      ${questionDifficulty()}
     </div>
   </section>`;
 }
@@ -337,6 +556,7 @@ function nav() {
     ['table', 'The Table'],
     ['grid', 'The Grid'],
     ['story', 'The Story'],
+    ['data', 'More Data'],
   ];
   return `<nav class="nav">${items
     .map(([id, label]) => `<a href="#${id}" data-label="${label}"></a>`)
@@ -355,12 +575,15 @@ function render() {
     scoreboard(),
     resultsGrid(),
     narrative(),
+    moreData(),
     footer(),
   ].join('');
 
   setupReveal();
   setupCountUps();
   setupBars();
+  setupFills();
+  setupGridReveal();
   setupProgress();
   setupScrollspy();
   setupMatrixTooltip();

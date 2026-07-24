@@ -27,19 +27,11 @@
     },
     {
       "predictor": "Fred",
-      "points": 13,
-      "hits": 8,
+      "points": 12,
+      "hits": 7,
       "partials": 4,
       "questions": 31,
-      "rank": 2
-    },
-    {
-      "predictor": "Oscar",
-      "points": 12,
-      "hits": 6,
-      "partials": 3,
-      "questions": 31,
-      "rank": 4
+      "rank": 3
     },
     {
       "predictor": "Tom",
@@ -47,23 +39,15 @@
       "hits": 6,
       "partials": 3,
       "questions": 31,
-      "rank": 5
+      "rank": 4
     },
     {
-      "predictor": "Dymond",
+      "predictor": "Oscar",
       "points": 11,
       "hits": 5,
-      "partials": 4,
+      "partials": 3,
       "questions": 31,
-      "rank": 5
-    },
-    {
-      "predictor": "Joe",
-      "points": 10,
-      "hits": 7,
-      "partials": 1,
-      "questions": 31,
-      "rank": 7
+      "rank": 4
     },
     {
       "predictor": "Harry",
@@ -71,7 +55,23 @@
       "hits": 5,
       "partials": 4,
       "questions": 31,
-      "rank": 7
+      "rank": 6
+    },
+    {
+      "predictor": "Dymond",
+      "points": 10,
+      "hits": 4,
+      "partials": 4,
+      "questions": 31,
+      "rank": 6
+    },
+    {
+      "predictor": "Joe",
+      "points": 9,
+      "hits": 6,
+      "partials": 1,
+      "questions": 31,
+      "rank": 8
     },
     {
       "predictor": "Mark",

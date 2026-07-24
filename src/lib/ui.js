@@ -76,6 +76,51 @@ export function setupBars(root = document) {
   boards.forEach((b) => io.observe(b));
 }
 
+/**
+ * Grow any bars inside a [data-fills] container to their target width
+ * (from each child's `--w` custom property) when the container scrolls in.
+ * A generic sibling of setupBars for the "More Data" charts.
+ */
+export function setupFills(root = document) {
+  const groups = root.querySelectorAll('[data-fills]');
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.querySelectorAll('[data-w]').forEach((f, i) => {
+          setTimeout(() => (f.style.width = f.dataset.w), 24 * i);
+        });
+        io.unobserve(e.target);
+      }
+    },
+    { threshold: 0.15 },
+  );
+  groups.forEach((g) => io.observe(g));
+}
+
+/**
+ * Stagger the results-grid cells in as it scrolls into view — a diagonal
+ * wave driven by each cell's `--i`. Motion only: with reduced-motion the
+ * cells are left fully visible (no hidden initial state), so nothing flashes.
+ */
+export function setupGridReveal(root = document) {
+  const matrix = root.querySelector('.matrix');
+  if (!matrix) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  matrix.classList.add('matrix--fx');
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    },
+    { threshold: 0.12 },
+  );
+  io.observe(matrix);
+}
+
 /** Top progress bar tied to scroll position. */
 export function setupProgress() {
   const bar = document.querySelector('.progress');

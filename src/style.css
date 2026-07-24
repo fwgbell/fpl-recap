@@ -625,6 +625,25 @@ strong {
 .cell--miss {
   background: #ffffff0e;
 }
+/* Staggered fill-in on scroll (added by setupGridReveal, motion only).
+   Uses animation (not transition) so it never interferes with hover. */
+.matrix--fx .cell--fx {
+  opacity: 0;
+}
+.matrix--fx.is-in .cell--fx {
+  animation: cellIn 0.42s var(--ease) both;
+  animation-delay: calc(var(--i) * 13ms);
+}
+@keyframes cellIn {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .cell[data-q] {
   cursor: crosshair;
   transition: transform 0.12s var(--ease), box-shadow 0.12s;
@@ -778,6 +797,13 @@ strong {
 .answer-line--miss .answer-line__val {
   font-weight: 500;
   color: var(--ink-3);
+}
+/* The real stat the pick achieved (goals, final position, FPL pts) — kept
+   quiet so it reads as a footnote to the answer, not part of it. */
+.answer-line__stat {
+  font-weight: 500;
+  font-size: 0.82em;
+  color: var(--ink-4);
 }
 .answer-line__pts {
   margin-left: auto;
@@ -948,6 +974,215 @@ strong {
 }
 .footer strong {
   color: var(--ink-2);
+}
+
+/* ============================================================
+   More Data — small multiples, scatter, question ranking
+   ============================================================ */
+.data-sub {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+/* Points-by-category small multiples */
+.multiples {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  margin-top: 1.8rem;
+}
+.mini {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+.mini__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.mini__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+.mini__tot {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--pl-green);
+}
+.mini__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mini__row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr 1.1rem;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mini__cat {
+  font-size: 0.72rem;
+  color: var(--ink-4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.mini__track {
+  height: 9px;
+  border-radius: 999px;
+  background: #ffffff12;
+  overflow: hidden;
+}
+.mini__fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--grad-bar);
+  transition: width 0.9s var(--ease);
+}
+.mini__fill.is-zero {
+  background: transparent;
+}
+.mini__val {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-align: right;
+  color: var(--ink-2);
+}
+.mini__val.is-zero {
+  color: var(--ink-4);
+}
+
+/* Accuracy vs boldness scatter */
+.scatter {
+  margin-top: 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+}
+.scatter svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.sc-grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.sc-axtxt {
+  fill: var(--ink-4);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+.sc-axttl {
+  fill: var(--ink-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sc-pt circle {
+  fill: var(--pl-green);
+  stroke: var(--bg);
+  stroke-width: 2;
+  transition: r 0.15s var(--ease);
+}
+.sc-pt.is-champ circle {
+  fill: var(--pl-gold);
+  filter: drop-shadow(0 0 6px #ffc90080);
+}
+.sc-pt:hover circle {
+  r: 9;
+}
+.sc-lbl {
+  fill: var(--ink-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  pointer-events: none;
+}
+.sc-pt.is-champ .sc-lbl {
+  fill: var(--pl-gold);
+}
+
+/* Hardest / easiest questions ranking */
+.qrank {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.qr {
+  display: grid;
+  grid-template-columns: minmax(9rem, 15rem) 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.4rem 0.2rem;
+  border-top: 1px solid var(--line);
+}
+.qr:first-child {
+  border-top: 0;
+}
+.qr__title {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qr__track {
+  height: 10px;
+  border-radius: 999px;
+  background: #ffffff10;
+  overflow: hidden;
+}
+.qr__fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--grad-bar);
+  transition: width 0.9s var(--ease);
+}
+.qr__fill.is-zero {
+  background: transparent;
+}
+.qr__n {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  min-width: 3.2rem;
+  text-align: right;
+  color: var(--ink);
+}
+.qr__n small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--ink-4);
+}
+.qr__n.is-zero {
+  color: var(--ink-4);
+}
+@media (max-width: 560px) {
+  .qr {
+    grid-template-columns: 1fr auto;
+    row-gap: 0.35rem;
+  }
+  .qr__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
 }
 
 /* Section tint variants */

@@ -34,11 +34,18 @@ tracks remaining polish and future ideas. Nothing here is blocking.
 _(All near-term polish done — see ✅ above.)_
 
 ## 📊 More visualisations (optional)
-- [ ] **Points-by-category** per player (small multiples, single hue — avoids the
+All three below now live in a **More Data** section at the bottom of the page
+(after The Story), rendered by `moreData()` in `src/main.js`.
+- [x] **Points-by-category** per player (small multiples, single hue — avoids the
       5-way categorical palette that failed validation).
-- [ ] **Accuracy vs boldness** scatter (how many lone-correct calls each person made).
-- [ ] **"Hardest / easiest questions"** — rank questions by how many got them right.
-- [ ] Animate The Grid cells filling in on scroll (staggered).
+- [x] **Accuracy vs boldness** scatter (how many lone-correct calls each person made).
+- [x] **"Hardest / easiest questions"** — rank questions by how many got them right.
+- [x] Animate The Grid cells filling in on scroll (staggered) — diagonal wave
+      via `setupGridReveal()` in `src/lib/ui.js`; motion-only, reduced-motion safe.
+
+
+      Hardest & easiest questions should be percentage based on how many points were awarded for that question, for example top 4 shouldn't be at 0 correct
+      add biggest flop and biggest success goal and appearance data
 
 ## 🏆 Stretch goal — live FPL mini-league report
 Parked. When ready:

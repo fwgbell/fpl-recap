@@ -17,6 +17,9 @@ gcp-oauth.keys.json
 .DS_Store
 Thumbs.db
 
+# Local working notes (scratch, not part of the site)
+answer-review.md
+
 # ─────────────────────────────────────────────────────────────────────────
 # Raw source data — NEVER COMMITTED. The whole data/ folder is local-only:
 #   - the Google Form CSV contains email addresses (PII)

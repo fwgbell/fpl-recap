@@ -30,17 +30,17 @@ export const scoreboard = {
       'Champion - and let the record show he wins it by a single point, entirely on the back of a +3 wildcard that Everton, incredibly, would keep the same manager. Strip that out and he’s tied on 11.',
     Eoin:
       'First season actually putting predictions on paper, and he got more questions right than anyone (nine). Second place his reward. Welcome to the Prita proper, Eoin;',
-    Fred: 'Answered the entire quiz without peeking at anyone else’s submissions, a true man of principle, and was rewarded with second place and precisely nothing.',
+    Fred: 'Answered the entire quiz without peeking at anyone else’s submissions, a true man of principle, and was rewarded with third place and precisely nothing.',
     Oscar:
-      'Last year’s champion, and still in the argument on 12. The Madueke flop and Gabriel for top defender, strong calls nobody else made.',
-    Tom: 'Correctly predicted his own relegation to the gameweek. You have to admire it. Did Tom hold on all those game weeks just to make that prediction come true?',
+      'Last year’s champion, and still in the argument on 11. The Madueke flop and Gabriel for top defender, strong calls nobody else made.',
+    Tom: 'Correctly predicted his own relegation to the gameweek. You have to admire it. Did Tom cling on all those weeks just to make that prediction come true?',
     Dymond:
-      'The only person to call the Klopp award correctly, and one of only four to place a top-four team in the right spot. A tidy 11 from a quiet campaign.',
-    Joe: 'Redemption arc of the year. Rooted to the bottom on 7 last season, Joe climbs to 10 - buoyed by actually reading the fantasy questions for once.',
+      'The only person to call the Klopp award correctly, and one of only four to place a top-four team in the right spot. A tidy 10 from a quiet campaign.',
+    Joe: 'Redemption arc of the year. Rooted to the bottom on 7 last season, Joe climbs to 9 - buoyed by actually reading the fantasy questions for once.',
     Harry: 'A solid ten, and one of the few to actually call Man United as a dark horse - which duly came in third. No disasters; just too few of those bold calls to climb any higher.',
     Mark: 'Backed Chelsea for the title again. Chelsea finished 10th. The club loyalty tax remains undefeated.',
     Spink:
-      'Only scoring points on 5 questions - one of them being the only person alive to call Welbeck as a dark horse - and the wooden spoon to show for it. A season of Hugo being Hugo.',
+      'This year had the most points up for grabs we’ve ever had yet Hugo has produced our all time lowest score. Only scoring points on 5 questions. Ball knowledge has hit a new low.',
     Toby:
       'Down among the also-rans on 7. Backed Liverpool for the title and got to watch them tumble out of the top four entirely - the gift that kept on giving.',
   },
@@ -81,9 +81,9 @@ export const quips = {
   relegated:
     'Burnley was the banker that only Joe missed. West Ham going down was the surprise only Lucas saw, manifesting the hammer’s downfall so they can face off against his beloved QPR this year.',
   'dark-horse-high':
-    'Man United, of all teams, finishing third after a 15th place finish the season before. Harry, Joe and Fred take the spoils.',
+    'Man United, of all teams, finishing third after a 15th place finish the season before. Harry, Joe and Fred take the spoils. Spink, Toby and Lucas all put Spurs down for this, who for the second year in a row finished 17th, narrowly escaping relegation',
   'top-xmas': 'Eoin, alone, saw Arsenal sitting top come Christmas. The rest of us still couldn’t see past Liverpool’s 2025 title.',
-  'surprisingly-low': 'Lucas’s masterstroke: the only one to back West Ham to fall through the floor. He was right.',
+  'surprisingly-low': 'Lucas’s masterstroke: the only one to back West Ham to fall through the floor. Very wishful thinking from Mark putting down Arsenal for this question.',
   tenth: 'Nobody had Chelsea as the definition of mid. In fairness, neither did Chelsea, right up until they finished 10th.',
   'first-sacked':
     'Not one correct answer. Nuno went first, Ange replaced him and lasted a heroic 39 days, and we all sat here naming managers that for the most part are still in the prem, only Slot and Potter wont be gracing our touchlines next season.',
@@ -110,9 +110,9 @@ export const quips = {
   'relegation-gw': 'GW36, and Tom essentially predicted his own downfall to the week. Bleak.',
   'most-fpl-points': 'Haaland topped the lot. Tom, Eoin, Fred and Lucas backed him; the Salah bloc came up short.',
   'best-first-pick': 'Same story - Haaland was the pick that carried a squad, and the same four called it.',
-  'worst-first-pick': 'Wirtz was a first-round pick and managed just 125 points all season - the worst return of any first-rounder by a distance. Dymond, Joe, Oscar and Fred saw the disappointment coming.',
+  'worst-first-pick': 'Palmer was a first-round pick and managed just 114 points all season - the worst return of any first-rounder. Not one of us called it; the popular pick was Wirtz (125), who was almost as bad but not quite.',
   'highest-forward': 'Haaland again, top of the forwards. A rare question most of us actually got.',
-  'highest-mid': 'Bruno Fernandes edged the midfield scoring. Only Joe and Fred correctly looked past Salah and Palmer. Tom and Eoin well off the park choosing Wirtz',
+  'highest-mid': 'Bruno Fernandes edged the midfield scoring. Only Joe and Fred correctly looked past Salah, Wirtz and Palmer.',
   'highest-defender': 'Gabriel topped the defenders. Oscar, alone, saw it - everyone else was mostly chasing full-backs but the new addition of DEFCON points made all the difference.',
   'dark-horse-player':
     'Welbeck, 35 years old, 126 points and a genuine England shout at one stage. Spink’s single moment of clairvoyance.',
@@ -149,15 +149,34 @@ export const awards = [
   },
 ];
 
+export const moreData = {
+  eyebrow: 'For the Spreadsheet Sickos',
+  title: 'More Data',
+  lead: 'The story is told. But some of you will want to see the working. Three ways of slicing the same season.',
+  categories: {
+    title: 'Where everyone scored',
+    lead: 'Points by category, one panel per predictor, best to worst. Nobody was strong everywhere - Fred ran away with the Fantasy questions, while Lucas’s title-winning +3 wildcard is folded into his Prem bar, which is why it towers over the rest.',
+  },
+  scatter: {
+    title: 'Accuracy vs boldness',
+    lead: 'Up the side, accuracy: total points. Along the bottom, boldness: lone calls - picks nobody else in the room made, right or wrong. Top-right is the dream (bold and accurate); Joe was the bravest by a mile and finished mid.',
+  },
+  questions: {
+    title: 'Hardest & easiest questions',
+    lead: 'Every question ranked by how many of the eleven got it right. The Golden Boot was a gimme; naming the actual champions, or the first manager sacked, beat the entire room.',
+  },
+};
+
 export const narrative = {
   eyebrow: 'The Long Read',
   title: 'How it actually went',
   paragraphs: [
-    'Let’s start with the headline: we were, collectively, terrible at predicting the actual football. Eight of us backed Liverpool to retain the title. It was Arsenal. Not one person named the champions. Some put Manchester United down as relegation fodder and dark horses in roughly equal measure; they finished third and made fools of everyone. Chelsea, whom everybody had in the champion’s league spots, drifted to a perfectly average tenth.',
-    'And yet the table was decided, as these things always are, at the margins. Lucas Fabbri is your 2025/26 champion on 14 points - but only just, and only because of a single wildcard. His straight-faced call that Everton would keep the same manager came true, banked the +3, and lifted him one point clear of a two-way pile-up on 13. Take that punt away and he’s tied in the pack. A title won on pure, calculated pettiness. Very Prita.',
-    'Behind him, the cruelty. Eoin got more questions right than anybody, nine, and finished second. Fred also finished second. Oscar, last year’s winner, still slipped to fourth on twelve. Such are the margins.',
-    'There were redemption arcs. Joe, bottom of the pile last year on a humiliating seven, dragged himself up to ten. There were also the usual relapses: Mark backing Chelsea for the title, again. And there was Toby, The Klopp award was his by reputation; Lucas only pinched it on a technicality.',
-    'So there it is. Another year, another set of confidently wrong opinions committed to a spreadsheet and now, permanently, to the internet. Lucas has the crown. The rest of us have the receipts. See you in August, when we’ll do it all again and somehow learn nothing.',
+    'Let’s start with the headline: we were, collectively, terrible at predicting the actual football. Eight of us backed Liverpool to retain the title. It was Arsenal. Not one person named the champions. Chelsea, whom everybody had in the champion’s league spots, drifted to a perfectly average tenth. Meanwhile quite a few of us had Spurs finishing high whilst others predicted United finishing low. Shots in the dark that took our prediction points with them',
+    'And yet the table was decided, as these things always are, by the tiniest of margins. Lucas Fabbri is your 2025/26 champion on 14 points - but only just, and only because of a single wild shout. While everyone else was arguing over golden boots and relegation battles, his call that Everton would keep the same manager came true, banked the +3, and lifted him one point clear of Eoin on 13. Take that punt away and he’s tied in the pack. A title won on pure, calculated pettiness. Very Prita.',
+    'Behind him, the cruelty. Eoin got more questions right than anybody, nine, and finished second. I complete the podium in distant 3rd. Oscar, last year’s winner, loses both his trophies this season and slips to joint fourth with Tom.',
+    'There were redemption arcs. Joe, bottom of the pile last year on a humiliating seven, dragged himself up to nine. There were also the usual relapses: Mark backing Chelsea for the title, again... and a bottom three finish for him, again... Right there with him is Toby, a quiet season for Mr Hanscomb, The Klopp award was his by reputation of course; Lucas only pinched it on a technicality.',
+    'That leaves Harry and Dymond, keeping the mid-table seats warm. Not forgetting Spink, who has somehow managed to outdo himself, with out lowest ever score, confirming that while he’s got an eye for a naked calendar, he certainly hasn’t got one for football.',
+    'So congratulations to Lucas, commiserations to everyone else, and condolences to anyone who thought they understood football back in August. See you next season, when we’ll all pretend we’ve learned our lessons before immediately tipping Chelsea to finish second, Everton to sack another manager, and Manchester United to do something completely inexplicable.',
   ],
 };
 
