@@ -89,7 +89,7 @@ export function setupProgress() {
   onScroll();
 }
 
-/** Scrollspy dots — highlight the active section. */
+/** Scrollspy dots - highlight the active section. */
 export function setupScrollspy() {
   const links = [...document.querySelectorAll('.nav a')];
   if (!links.length) return;
@@ -111,7 +111,13 @@ export function setupScrollspy() {
   });
 }
 
-/** Floating tooltip for the results matrix (hover per cell). */
+/**
+ * Floating tooltip for the results matrix.
+ *  - Mouse / fine pointer: hover a cell to preview; the tip follows the cursor.
+ *  - Touch / pen: tap a cell to pin the tip above it (so a finger doesn't cover
+ *    it); tap it again, tap outside, or scroll to dismiss. This avoids the
+ *    classic "stuck tooltip" when swiping the horizontally-scrollable grid.
+ */
 export function setupMatrixTooltip(root = document) {
   const wrap = root.querySelector('[data-matrix]');
   if (!wrap) return;
@@ -120,30 +126,91 @@ export function setupMatrixTooltip(root = document) {
   tip.setAttribute('role', 'status');
   document.body.appendChild(tip);
 
-  const show = (cell) => {
+  let activeCell = null;
+
+  const render = (cell) => {
     const { q, pick, pts, state } = cell.dataset;
     const label = { hit: 'Correct', partial: 'Partial', miss: 'Missed' }[state] ?? '';
-    tip.innerHTML = `<strong>${esc(cell.dataset.who)}</strong> · ${esc(q)}<br><span class="mtip__pick">${esc(pick || '—')}</span><span class="mtip__tag mtip__tag--${state}">${label} · +${pts}</span>`;
+    tip.innerHTML = `<strong>${esc(cell.dataset.who)}</strong> · ${esc(q)}<br><span class="mtip__pick">${esc(pick || '-')}</span><span class="mtip__tag mtip__tag--${state}">${label} · +${pts}</span>`;
     tip.classList.add('is-on');
   };
-  const move = (e) => {
+
+  const hide = () => {
+    tip.classList.remove('is-on');
+    if (activeCell) activeCell.classList.remove('is-active');
+    activeCell = null;
+  };
+
+  // Follow-the-cursor placement (mouse).
+  const positionAt = (px, py) => {
     const pad = 14;
-    let x = e.clientX + pad;
-    let y = e.clientY + pad;
     const r = tip.getBoundingClientRect();
-    if (x + r.width > window.innerWidth - 8) x = e.clientX - r.width - pad;
-    if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - pad;
+    let x = px + pad;
+    let y = py + pad;
+    if (x + r.width > window.innerWidth - 8) x = px - r.width - pad;
+    if (y + r.height > window.innerHeight - 8) y = py - r.height - pad;
+    tip.style.transform = `translate(${Math.max(8, x)}px, ${Math.max(8, y)}px)`;
+  };
+
+  // Pinned-above-the-cell placement (touch), flips below if there's no room.
+  const positionAboveCell = (cell) => {
+    const cr = cell.getBoundingClientRect();
+    const tr = tip.getBoundingClientRect();
+    let x = cr.left + cr.width / 2 - tr.width / 2;
+    let y = cr.top - tr.height - 10;
+    if (y < 8) y = cr.bottom + 10;
+    x = Math.max(8, Math.min(x, window.innerWidth - tr.width - 8));
     tip.style.transform = `translate(${x}px, ${y}px)`;
   };
 
+  /* Mouse: hover preview. */
   wrap.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
     const cell = e.target.closest('.cell[data-q]');
     if (cell) {
-      show(cell);
-      move(e);
-    } else tip.classList.remove('is-on');
+      render(cell);
+      positionAt(e.clientX, e.clientY);
+    } else if (!activeCell) {
+      tip.classList.remove('is-on');
+    }
   });
-  wrap.addEventListener('pointerleave', () => tip.classList.remove('is-on'));
+  wrap.addEventListener('pointerleave', (e) => {
+    if (e.pointerType === 'mouse' && !activeCell) tip.classList.remove('is-on');
+  });
+
+  /* Touch / pen: tap to toggle. Detect a genuine tap vs a scroll swipe. */
+  let downX = 0;
+  let downY = 0;
+  let downCell = null;
+  let downType = 'mouse';
+  wrap.addEventListener('pointerdown', (e) => {
+    downType = e.pointerType;
+    downX = e.clientX;
+    downY = e.clientY;
+    downCell = e.target.closest('.cell[data-q]');
+  });
+  wrap.addEventListener('pointerup', (e) => {
+    if (downType === 'mouse') return;
+    const cell = e.target.closest('.cell[data-q]');
+    const moved = Math.hypot(e.clientX - downX, e.clientY - downY);
+    if (!cell || cell !== downCell || moved > 10) return;
+    if (activeCell === cell) {
+      hide();
+    } else {
+      hide();
+      activeCell = cell;
+      cell.classList.add('is-active');
+      render(cell);
+      positionAboveCell(cell);
+    }
+  });
+
+  /* Dismiss a pinned tip on outside tap or any scroll. */
+  document.addEventListener('pointerdown', (e) => {
+    if (activeCell && !e.target.closest('[data-matrix]')) hide();
+  });
+  window.addEventListener('scroll', () => activeCell && hide(), { passive: true });
+  wrap.addEventListener('scroll', () => activeCell && hide(), { passive: true });
 }
 
 /** Tiny HTML escaper for interpolating data into templates. */

@@ -35,11 +35,11 @@
     },
     {
       "predictor": "Oscar",
-      "points": 13,
-      "hits": 7,
+      "points": 12,
+      "hits": 6,
       "partials": 3,
       "questions": 31,
-      "rank": 2
+      "rank": 4
     },
     {
       "predictor": "Tom",
@@ -82,7 +82,7 @@
       "rank": 9
     },
     {
-      "predictor": "Spink",
+      "predictor": "Toby",
       "points": 7,
       "hits": 3,
       "partials": 3,
@@ -90,12 +90,12 @@
       "rank": 9
     },
     {
-      "predictor": "Toby",
-      "points": 7,
-      "hits": 3,
+      "predictor": "Spink",
+      "points": 6,
+      "hits": 2,
       "partials": 3,
       "questions": 31,
-      "rank": 9
+      "rank": 11
     }
   ],
   "highlights": {
@@ -160,6 +160,8 @@
       {
         "predictor": "Lucas",
         "raw": "Everton will keep the same manager",
+        "display": "Everton will keep the same manager",
+        "key": "everton will keep the same manager",
         "points": 3,
         "correct": true,
         "max": 3,
@@ -168,6 +170,8 @@
       {
         "predictor": "Mark",
         "raw": "Tom, Dymond",
+        "display": "Tom, Dymond",
+        "key": "Dymond|Tom",
         "points": 2,
         "correct": true,
         "partial": true,
@@ -177,6 +181,8 @@
       {
         "predictor": "Oscar",
         "raw": "Tom, Dymond",
+        "display": "Tom, Dymond",
+        "key": "Dymond|Tom",
         "points": 2,
         "correct": true,
         "partial": true,

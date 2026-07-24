@@ -50,6 +50,20 @@ function hero() {
   </header>`;
 }
 
+/* ----------------------------------------------------------------- intro */
+function intro() {
+  const paras = C.intro.paragraphs.map((p) => `<p>${esc(p)}</p>`).join('');
+  return `
+  <section class="section section--intro" id="intro">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <div class="eyebrow">${esc(C.intro.eyebrow)}</div>
+        <div class="prose intro-prose">${paras}</div>
+      </div>
+    </div>
+  </section>`;
+}
+
 /* ------------------------------------------------------------ scoreboard */
 function scoreboard() {
   const max = summary.standings[0].points;
@@ -67,7 +81,10 @@ function scoreboard() {
     })
     .join('');
 
-  const lines = summary.standings
+  // Cards run worst → best so the winner is the last thing you reach as you
+  // scroll - a slow reveal that builds to the champion, then the ranked table.
+  const lines = [...summary.standings]
+    .reverse()
     .filter((s) => C.scoreboard.lines[s.predictor])
     .map(
       (s, i) => `
@@ -87,8 +104,8 @@ function scoreboard() {
         <h2 class="section-title">The <span class="accent-gold">Predictions</span> Table</h2>
         <p class="section-lead">${esc(C.scoreboard.lead)}</p>
       </div>
+      <div class="grid grid--reveal">${lines}</div>
       <div class="board reveal" data-bars>${rows}</div>
-      <div class="grid">${lines}</div>
     </div>
   </section>`;
 }
@@ -129,7 +146,7 @@ function resultsGrid() {
         .map((q, qi) => {
           const a = byName[name][qi];
           const state = a?.correct ? 'hit' : a?.partial ? 'partial' : 'miss';
-          return `<div class="cell cell--${state}" data-q="${esc(q.title)}" data-who="${esc(name)}" data-pick="${esc(a?.raw ?? '')}" data-pts="${a?.points ?? 0}" data-state="${state}"></div>`;
+          return `<div class="cell cell--${state}" data-q="${esc(q.title)}" data-who="${esc(name)}" data-pick="${esc(a?.display ?? a?.raw ?? '')}" data-pts="${a?.points ?? 0}" data-state="${state}"></div>`;
         })
         .join('');
       return `<div class="cell cell--name">${esc(name)}</div>${cells}`;
@@ -142,7 +159,7 @@ function resultsGrid() {
       <div class="reveal">
         <div class="eyebrow">Every Pick, Visualised</div>
         <h2 class="section-title">The <span class="accent">Grid</span></h2>
-        <p class="section-lead">Eleven predictors down, thirty-one questions across, ranked best to worst. Green is a hit, amber a partial, empty a miss. Hover any square for the pick.</p>
+        <p class="section-lead">Eleven predictors down, thirty-one questions across, ranked best to worst. Green is a hit, amber a partial, empty a miss. Hover or tap any square for the pick.</p>
         <div class="legend">
           <span><i class="sw sw--hit"></i>Correct</span>
           <span><i class="sw sw--partial"></i>Partial</span>
@@ -157,44 +174,67 @@ function resultsGrid() {
 }
 
 /* ------------------------------------------------------- category grid */
-function answerLine(a) {
-  const state = a.correct ? 'hit' : a.partial ? 'partial' : 'miss';
-  const icon = { hit: '✓', partial: '½', miss: '✕' }[state];
+// Collapse identical picks into one grouped line. Grouping is by the
+// canonical `key` from ingest, so name variants ("Erling Haaland" ==
+// "Haaland") and reordered/messy answers merge; the clean `display` is shown.
+function groupAnswers(answers) {
+  const groups = new Map();
+  for (const a of answers) {
+    const k = a.key ?? (a.raw || '-').trim().toLowerCase();
+    if (!groups.has(k)) {
+      groups.set(k, {
+        display: a.display ?? ((a.raw || '').trim() || '-'),
+        names: [],
+        points: a.points,
+        correct: a.correct,
+        partial: a.partial,
+        max: a.max,
+      });
+    }
+    groups.get(k).names.push(a.predictor);
+  }
+  const rank = (g) => (g.correct ? 0 : g.partial ? 1 : 2);
+  return [...groups.values()].sort(
+    (a, b) => rank(a) - rank(b) || b.points - a.points || b.names.length - a.names.length,
+  );
+}
+
+function answerLine(g) {
+  const state = g.correct ? 'hit' : g.partial ? 'partial' : 'miss';
+  const icon = state === 'hit' ? '✓' : state === 'partial' ? `${g.points}/${g.max}` : '✕';
   return `
-    <div class="answer-line">
+    <div class="answer-line answer-line--${state}">
       <span class="answer-line__icon ic-${state}">${icon}</span>
-      <span class="answer-line__who">${esc(a.predictor)}</span>
-      <span class="answer-line__val">${esc(a.raw || '—')}</span>
-      <span class="answer-line__pts">+${a.points}</span>
+      <span class="answer-line__val">${esc(g.display)}</span>
+      <span class="answer-line__pts">+${g.points}</span>
+      <span class="answer-line__who">${esc(g.names.join(', '))}</span>
     </div>`;
 }
 
 function questionCard(q, i) {
-  const scorers = q.answers.filter((a) => a.points > 0).sort((a, b) => b.points - a.points);
-  const missed = q.answers.length - scorers.length;
   const quip = C.quips[q.slug];
-  const shown = scorers.length
-    ? scorers.map(answerLine).join('')
-    : `<div class="answer-line"><span class="answer-line__icon ic-miss">✕</span><span class="answer-line__val">Nobody got this one.</span></div>`;
+  const shown = groupAnswers(q.answers).map(answerLine).join('');
   return `
     <div class="card reveal" data-delay="${(i % 3) + 1}">
       <div class="card__q"><span>${esc(q.title)}</span></div>
       ${quip ? `<p style="color:var(--ink-3);font-size:.92rem;margin:-.3rem 0 .9rem">${esc(quip)}</p>` : ''}
       ${shown}
-      ${missed && scorers.length ? `<div class="answer-line" style="color:var(--ink-4)"><span class="answer-line__icon ic-miss">✕</span><span class="answer-line__val">${missed} others missed</span></div>` : ''}
       <div class="card__correct">Correct answer: <b>${esc(q.correctDisplay)}</b></div>
-      ${q.note ? `<div class="card__note">${esc(q.note)}</div>` : ''}
     </div>`;
 }
 
 function breakdown() {
   const order = ['Premier League', 'Players', 'Fantasy', 'The League', 'Wildcard'];
+  // These live in the Awards section - don't repeat them in the breakdown.
+  const awardSlugs = new Set(C.awards.map((a) => a.slug));
   const byGroup = {};
-  predictions.questions.forEach((q) => (byGroup[q.group] ??= []).push(q));
+  predictions.questions
+    .filter((q) => !awardSlugs.has(q.slug))
+    .forEach((q) => (byGroup[q.group] ??= []).push(q));
 
   let idx = 0;
   const blocks = order
-    .filter((g) => byGroup[g])
+    .filter((g) => byGroup[g] && byGroup[g].length)
     .map((g) => {
       const cards = byGroup[g].map((q) => questionCard(q, idx++)).join('');
       return `
@@ -212,7 +252,7 @@ function breakdown() {
       <div class="reveal">
         <div class="eyebrow">Question by Question</div>
         <h2 class="section-title">The <span class="accent">Full Breakdown</span></h2>
-        <p class="section-lead">All thirty-one predictions, what actually happened, and who — if anyone — saw it coming.</p>
+        <p class="section-lead">All thirty-one predictions, what actually happened, and who - if anyone - saw it coming.</p>
       </div>
       ${blocks}
     </div>
@@ -221,14 +261,19 @@ function breakdown() {
 
 /* ------------------------------------------------------------- awards */
 function awards() {
+  const bySlug = Object.fromEntries(predictions.questions.map((q) => [q.slug, q]));
   const cards = C.awards
     .map(
-      (a, i) => `
+      (a, i) => {
+        const q = bySlug[a.slug];
+        const picks = q ? groupAnswers(q.answers).map(answerLine).join('') : '';
+        return `
       <div class="award reveal" data-delay="${(i % 3) + 1}">
         <div class="award__crown">${a.crown}</div>
         <div class="award__title">${esc(a.title)}</div>
         <div class="award__winner">${esc(a.winner)} · <span style="color:var(--ink-3);font-weight:500">${esc(a.sub)}</span></div>
         <p class="award__body">${esc(a.body)}</p>
+        ${picks ? `<div class="award__picks">${picks}</div>` : ''}
         ${(a.images ?? [])
           .map(
             (img) => `
@@ -238,7 +283,8 @@ function awards() {
           </figure>`,
           )
           .join('')}
-      </div>`,
+      </div>`;
+      },
     )
     .join('');
 
@@ -286,10 +332,10 @@ function footer() {
 function nav() {
   const items = [
     ['top', 'Top'],
-    ['table', 'The Table'],
-    ['grid', 'The Grid'],
     ['breakdown', 'Breakdown'],
     ['awards', 'Awards'],
+    ['table', 'The Table'],
+    ['grid', 'The Grid'],
     ['story', 'The Story'],
   ];
   return `<nav class="nav">${items
@@ -303,10 +349,11 @@ function render() {
     '<div class="progress"></div>',
     nav(),
     hero(),
-    scoreboard(),
-    resultsGrid(),
+    intro(),
     breakdown(),
     awards(),
+    scoreboard(),
+    resultsGrid(),
     narrative(),
     footer(),
   ].join('');

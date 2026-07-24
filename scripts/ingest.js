@@ -235,6 +235,83 @@ const domainFor = (type) =>
   type.endsWith('-team') ? 'team' : type.endsWith('-player') || type.endsWith('-manager') ? 'player' : 'person';
 
 /* ----------------------------------------------------------------
+   Display labels: a clean, canonical name per answer so the site can
+   group name variants ("Erling Haaland" == "Haaland") and render tidy
+   one-row order answers. Falls back to the raw text when unresolved.
+   ---------------------------------------------------------------- */
+const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
+// canonical id -> nice display name (fallback = capitalised id)
+const NAME = {
+  manutd: 'Man U',
+  mancity: 'Man City',
+  westham: 'West Ham',
+  forest: 'Forest',
+  palace: 'Palace',
+  spurs: 'Spurs',
+  leicester: 'Leicester',
+  southampton: 'Southampton',
+  brunof: 'Bruno F',
+  joaopedro: 'Joao Pedro',
+  pedroporro: 'Pedro Porro',
+  aitnouri: 'Ait Nouri',
+  benwhite: 'Ben White',
+  taa: 'Alexander-Arnold',
+  lebris: 'Le Bris',
+  nuno: 'Nuno',
+};
+// canonical team id -> short code for order answers (fallback = nice name)
+const ABBR = {
+  arsenal: 'Ars',
+  mancity: 'City',
+  manutd: 'Man U',
+  chelsea: 'Che',
+  liverpool: 'Liv',
+  villa: 'Villa',
+  spurs: 'Spurs',
+  newcastle: 'New',
+  westham: 'West Ham',
+};
+
+const niceName = (id) => (!id || id.startsWith('?') ? null : NAME[id] ?? cap(id));
+const abbr = (id) => (!id || id.startsWith('?') ? null : ABBR[id] ?? niceName(id));
+
+// Returns { key, display } for grouping + rendering a single answer.
+function displayAnswer(q, raw) {
+  const type = q.type;
+  const domain = domainFor(type);
+  const trimmed = (raw || '').trim();
+  if (!trimmed) return { key: '—', display: '—' };
+
+  if (type === 'crazy') return { key: trimmed.toLowerCase(), display: trimmed };
+
+  if (type === 'numeric') {
+    const n = String(raw).match(/\d+/)?.[0];
+    return n ? { key: n, display: n } : { key: trimmed.toLowerCase(), display: trimmed };
+  }
+
+  if (type.startsWith('single')) {
+    const id = resolve(trimmed, domain);
+    return { key: id, display: niceName(id) ?? trimmed };
+  }
+
+  if (type.startsWith('multi')) {
+    const parts = splitMulti(trimmed);
+    const ids = parts.map((p) => resolve(p, domain));
+    const names = parts.map((p, i) => niceName(ids[i]) ?? p.trim());
+    return { key: [...ids].sort().join('|'), display: names.join(', ') };
+  }
+
+  if (type.startsWith('order')) {
+    const ids = tokeniseTeams(trimmed);
+    if (!ids.length) return { key: trimmed.toLowerCase(), display: trimmed };
+    return { key: ids.join('>'), display: ids.map((id) => abbr(id) ?? id).join(' · ') };
+  }
+
+  return { key: trimmed.toLowerCase(), display: trimmed };
+}
+
+/* ----------------------------------------------------------------
    Scoring
    ---------------------------------------------------------------- */
 function scoreAnswer(q, rawAnswer, canonPlayer, crazyBonus) {
@@ -303,7 +380,8 @@ async function main() {
     const answers = playerRows.map((row, i) => {
       const raw = (row[q.col] || '').trim();
       const res = scoreAnswer(q, raw, players[i], key.crazyBonus);
-      return { predictor: players[i], raw, ...res };
+      const { key: gkey, display } = displayAnswer(q, raw);
+      return { predictor: players[i], raw, display, key: gkey, ...res };
     });
     const maxPoints = Math.max(...answers.map((a) => a.max), 0);
     return {
