@@ -44,8 +44,22 @@ All three below now live in a **More Data** section at the bottom of the page
       via `setupGridReveal()` in `src/lib/ui.js`; motion-only, reduced-motion safe.
 
 
-      Hardest & easiest questions should be percentage based on how many points were awarded for that question, for example top 4 shouldn't be at 0 correct
-      add biggest flop and biggest success goal and appearance data
+- [x] Hardest & easiest questions now ranked by **% of points banked** (awarded ÷
+      available) instead of a hit count, so partial-credit questions like Top 4
+      read ~52% rather than a misleading 0. (`questionDifficulty()` in `main.js`.)
+- [ ] **Biggest flop / success appearance + goal data** — table scaffolded in
+      `src/data/achieved.js` (`SIGNING_STATS`, all picks keyed, values `null`).
+      Fill in `apps`/`goals` by hand; each pick shows its stat once both are set.
+- [x] Fade-in stutter on iOS Safari — reveals promoted to their own compositor
+      layer (`translate3d` + `will-change`); hero orbs de-blurred and their float
+      stopped under 680px so off-screen orbs stop thrashing the mobile compositor.
+- [x] Over-long answers (crazy-prediction sentences) now flow inline with the
+      tick and points and wrap in place (`.answer-line__val` is `flex:1` with
+      `overflow-wrap:anywhere`).
+- [x] Crazy-predictions: the two United calls that came true are ticked (green ✓)
+      and sorted to the top, below Lucas's +3, with a "came true, no points" note
+      on its own line under the answer. Presentational only — `cameTrue` override
+      in `content.js`, scoring untouched.
 
 ## 🏆 Stretch goal — live FPL mini-league report
 Parked. When ready:

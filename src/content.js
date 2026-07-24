@@ -75,24 +75,24 @@ export const groups = {
 export const quips = {
   'title-winner':
     'A clean sweep of wrong. Eight Liverpools, a United, a City, a Chelsea - and the actual champions, Arsenal, named by nobody. Not one of us could bring ourselves to write them down; wishful thinking, probably, leaving the team we most wanted to fail off the list entirely.',
-  'top-4': 'We all included Chelsea in our top 4 this year yet they were lucky to make it to top 10 in the end. Then nearly all of us shoved Liverpool in too, the reigning champions finished fifth. We all banked Arsenal and City, and only Joe, ever the contrarian, stumbled into Man U’s third.',
+  'top-4': 'Amazingly there was nearly perfect concenus amongst us on who the top 4 would be, but we were still nowhere near. We all included Chelsea in our top 4 this year yet they were lucky to make it to top 10 in the end. Then nearly all of us shoved Liverpool in, the reigning champions finished fifth. We all banked Arsenal and City, and only Joe, ever the contrarian, stumbled into Man U’s third.',
   'top-4-order':
     'Getting the four right was hard enough; ordering them was carnage. Four of us landed City in second and that was the extent of the accuracy.',
   relegated:
     'Burnley was the banker that only Joe missed. West Ham going down was the surprise only Lucas saw, manifesting the hammer’s downfall so they can face off against his beloved QPR this year.',
   'dark-horse-high':
     'Man United, of all teams, finishing third after a 15th place finish the season before. Harry, Joe and Fred take the spoils. Spink, Toby and Lucas all put Spurs down for this, who for the second year in a row finished 17th, narrowly escaping relegation',
-  'top-xmas': 'Eoin, alone, saw Arsenal sitting top come Christmas. The rest of us still couldn’t see past Liverpool’s 2025 title.',
+  'top-xmas': 'Eoin, alone, saw Arsenal sitting top come Christmas. Most of us still couldn’t see past Liverpool’s 2025 title.',
   'surprisingly-low': 'Lucas’s masterstroke: the only one to back West Ham to fall through the floor. Very wishful thinking from Mark putting down Arsenal for this question.',
-  tenth: 'Nobody had Chelsea as the definition of mid. In fairness, neither did Chelsea, right up until they finished 10th.',
+  tenth: 'Nobody saw Chelsea becoming the poster boys for the mid-table, but there they sat in tenth, proudly leading the double-digit finishers',
   'first-sacked':
     'Not one correct answer. Nuno went first, Ange replaced him and lasted a heroic 39 days, and we all sat here naming managers that for the most part are still in the prem, only Slot and Potter wont be gracing our touchlines next season.',
   'golden-boot': 'The one everyone could see coming. Seven of us on Haaland; Salah, Sesko and Joao Pedro the brave dissenters.',
   'golden-glove': 'Raya retained it, and half the group knew it. Fred went for Sels, which was certainly a choice - but nothing tops Joe, who put down Maguire. A centre-back. For the goalkeeping award.',
   'biggest-flop':
-    'Madueke: one league goal all year, barely a full 90 to his name, and somehow still an England call-up. Only Oscar called it. In truth Wissa was the bigger flop - a wretched drop-off after leaving Brentford - but not one of us thought to name him.',
+    'Madueke: only 3 league goals all year, only 3 full 90’s to his name, and somehow still an England call-up. Only Oscar called it. In truth Wissa was the bigger flop - a monumental drop-off from a "prem proven" player - but not one of us thought to name him.',
   'biggest-success':
-    '31 starts, 24 goal involvements - Joao Pedro was the clear signing of the season, and only Mark saw it coming.',
+    '31 starts, 24 goal involvements - Joao Pedro was the clear signing of the season, and only Mark backed the Chelsea striker. Isak getting guessed here by Oscar is Ironic, a dramatic exit from Newcastle, a british record signing and 4 goal involvements to show for it. If anyone had put him down on the previous question he definitely would’ve been our biggest flop',
   'jan-spend': 'City dropped £180m in January, more than the rest of the division combined. Harry, Joe and Mark cashed in.',
   crazy:
     'The +3 that decided the whole thing. Of all the fire-in-the-stadium and pitch-invasion punts, it was Lucas’s "Everton will keep the same manager" that came true - and it won him the title.',
@@ -116,6 +116,15 @@ export const quips = {
   'highest-defender': 'Gabriel topped the defenders. Oscar, alone, saw it - everyone else was mostly chasing full-backs but the new addition of DEFCON points made all the difference.',
   'dark-horse-player':
     'Welbeck, 35 years old, 126 points and a genuine England shout at one stage. Spink’s single moment of clairvoyance.',
+};
+
+/**
+ * Wildcard answers that came true but banked no points (only the single best
+ * prediction earns the +3). Purely presentational: these get a tick and sort
+ * up with the winner, but stay on +0. Keyed by question slug → canonical keys.
+ */
+export const cameTrue = {
+  crazy: ['united will score goals', 'united will finish in single figures'],
 };
 
 export const awards = [
@@ -163,7 +172,7 @@ export const moreData = {
   },
   questions: {
     title: 'Hardest & easiest questions',
-    lead: 'Every question ranked by how many of the eleven got it right. The Golden Boot was a gimme; naming the actual champions, or the first manager sacked, beat the entire room.',
+    lead: 'Every question ranked by the share of its points the room actually banked - awarded out of available, so partial credit counts. The Golden Boot was a gimme; the Top 4 was brutal but not a whitewash; naming the actual champions, or the first manager sacked, beat everyone for nothing.',
   },
 };
 

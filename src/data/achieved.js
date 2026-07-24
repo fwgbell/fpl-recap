@@ -32,6 +32,23 @@ const GOALS = { haaland: 27, salah: 7, sesko: 11, joaopedro: 15 };
 // Golden Glove: canonical player id -> PL clean sheets. (Maguire, a defender, omitted.)
 const CLEAN_SHEETS = { raya: 19, sanchez: 9, sels: 7, alisson: 8 };
 
+// Transfer questions (biggest flop / biggest success): PL starts + G+A
+// (goals + assists). Fill in by hand. A pick shows its stat only once BOTH
+// numbers are set (leave as null to hide). Keys are every player submitted
+// across both questions.
+const SIGNING_STATS = {
+  gyokeres: { starts: 26, ga: 15 },
+  mbeumo: { starts: 31, ga: 14 },
+  kudus: { starts: 19, ga: 8 },
+  sesko: { starts: 17, ga: 13 },
+  madueke: { starts: 16, ga: 4 },
+  ekitike: { starts: 21, ga: 15 },
+  wirtz: { starts: 27, ga: 9 },
+  joaopedro: { starts: 31, ga: 24 },
+  isak: { starts: 8, ga: 4 },
+  reijnders: { starts: 19, ga: 8 },
+};
+
 // Top at Christmas: canonical team id -> league position on ~25 Dec 2025
 // (distinct from the final table).
 const XMAS_POS = { arsenal: 1, mancity: 2, liverpool: 4, chelsea: 5, manutd: 6 };
@@ -53,6 +70,8 @@ const SLUG_FPL = new Set([
 ]);
 // Single-person mini-league questions (the pick is one person).
 const SLUG_PERSON = new Set(['prita-winner', 'segunda-winner', 'segunda-promoted', 'segunda-last']);
+// Transfer questions annotated with appearances + goals.
+const SLUG_SIGNING = new Set(['biggest-flop', 'biggest-success']);
 
 const ordinal = (n) => {
   const s = ['th', 'st', 'nd', 'rd'];
@@ -90,6 +109,11 @@ export function statFor(slug, key) {
   if (SLUG_PERSON.has(slug)) {
     const p = PERSON_POS[key];
     return p ? ordinal(p) : null;
+  }
+  if (SLUG_SIGNING.has(slug)) {
+    const s = SIGNING_STATS[key];
+    if (!s || s.starts == null || s.ga == null) return null;
+    return `starts: ${s.starts}, G+A: ${s.ga}`;
   }
   return null;
 }

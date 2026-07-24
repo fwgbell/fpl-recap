@@ -181,7 +181,7 @@ function resultsGrid() {
 // Collapse identical picks into one grouped line. Grouping is by the
 // canonical `key` from ingest, so name variants ("Erling Haaland" ==
 // "Haaland") and reordered/messy answers merge; the clean `display` is shown.
-function groupAnswers(answers) {
+function groupAnswers(answers, slug) {
   const groups = new Map();
   for (const a of answers) {
     const k = a.key ?? (a.raw || '-').trim().toLowerCase();
@@ -194,11 +194,14 @@ function groupAnswers(answers) {
         correct: a.correct,
         partial: a.partial,
         max: a.max,
+        // "Came true" but scored nothing (only the best wildcard earns points).
+        // Purely presentational — sorted up with the hits, ticked, still +0.
+        cameTrue: !a.correct && !!C.cameTrue?.[slug]?.includes(k),
       });
     }
     groups.get(k).names.push(a.predictor);
   }
-  const rank = (g) => (g.correct ? 0 : g.partial ? 1 : 2);
+  const rank = (g) => (g.correct || g.cameTrue ? 0 : g.partial ? 1 : 2);
   return [...groups.values()].sort(
     (a, b) => rank(a) - rank(b) || b.points - a.points || b.names.length - a.names.length,
   );
@@ -207,7 +210,8 @@ function groupAnswers(answers) {
 const statSpan = (s) => ` <span class="answer-line__stat">(${esc(s)})</span>`;
 
 function answerLine(g, slug) {
-  const state = g.correct ? 'hit' : g.partial ? 'partial' : 'miss';
+  // A came-true wildcard shows as a hit (green ✓) but banked no points.
+  const state = g.correct || g.cameTrue ? 'hit' : g.partial ? 'partial' : 'miss';
   const icon = state === 'hit' ? '✓' : state === 'partial' ? `${g.points}/${g.max}` : '✕';
   let val;
   if (slug === 'players-relegated') {
@@ -224,18 +228,21 @@ function answerLine(g, slug) {
     const stat = statFor(slug, g.key);
     val = esc(g.display) + (stat ? statSpan(stat) : '');
   }
+  // "Came true" wildcards get a full-width note on its own line under the answer.
+  const note = g.cameTrue ? `<span class="answer-line__note">came true, no points</span>` : '';
   return `
     <div class="answer-line answer-line--${state}">
       <span class="answer-line__icon ic-${state}">${icon}</span>
       <span class="answer-line__val">${val}</span>
       <span class="answer-line__pts">+${g.points}</span>
+      ${note}
       <span class="answer-line__who">${esc(g.names.join(', '))}</span>
     </div>`;
 }
 
 function questionCard(q, i) {
   const quip = C.quips[q.slug];
-  const shown = groupAnswers(q.answers).map((g) => answerLine(g, q.slug)).join('');
+  const shown = groupAnswers(q.answers, q.slug).map((g) => answerLine(g, q.slug)).join('');
   return `
     <div class="card reveal" data-delay="${(i % 3) + 1}">
       <div class="card__q"><span>${esc(q.title)}</span></div>
@@ -288,7 +295,7 @@ function awards() {
     .map(
       (a, i) => {
         const q = bySlug[a.slug];
-        const picks = q ? groupAnswers(q.answers).map((g) => answerLine(g, q.slug)).join('') : '';
+        const picks = q ? groupAnswers(q.answers, q.slug).map((g) => answerLine(g, q.slug)).join('') : '';
         return `
       <div class="award reveal" data-delay="${(i % 3) + 1}">
         <div class="award__crown">${a.crown}</div>
@@ -474,24 +481,25 @@ function accuracyVsBoldness() {
     </div>`;
 }
 
-// Every question ranked by how many of the eleven got it right.
+// Every question ranked by the share of its points the room actually banked -
+// points awarded ÷ points available. Using points (not a hit count) means
+// partial-credit questions like Top 4 read as "hard but not a whitewash"
+// rather than a misleading zero.
 function questionDifficulty() {
-  const stats = predictions.questions.map((q) => ({
-    title: q.title,
-    hits: q.answers.filter((a) => a.correct).length,
-    partials: q.answers.filter((a) => a.partial && !a.correct).length,
-    n: q.answers.length,
-  }));
-  const maxHits = Math.max(...stats.map((s) => s.hits));
-  stats.sort((a, b) => b.hits - a.hits || b.partials - a.partials || a.title.localeCompare(b.title));
+  const stats = predictions.questions.map((q) => {
+    const got = q.answers.reduce((s, a) => s + (a.points ?? 0), 0);
+    const avail = q.answers.reduce((s, a) => s + (a.max ?? 0), 0);
+    return { title: q.title, got, avail, pct: avail ? got / avail : 0 };
+  });
+  stats.sort((a, b) => b.pct - a.pct || a.title.localeCompare(b.title));
 
   const rows = stats
     .map(
       (s) => `
       <div class="qr">
         <span class="qr__title" title="${esc(s.title)}">${esc(s.title)}</span>
-        <span class="qr__track"><span class="qr__fill${s.hits === 0 ? ' is-zero' : ''}" data-w="${(s.hits / maxHits) * 100}%"></span></span>
-        <span class="qr__n${s.hits === 0 ? ' is-zero' : ''}">${s.hits}<small>/${s.n}</small></span>
+        <span class="qr__track"><span class="qr__fill${s.got === 0 ? ' is-zero' : ''}" data-w="${s.pct * 100}%"></span></span>
+        <span class="qr__n${s.got === 0 ? ' is-zero' : ''}">${Math.round(s.pct * 100)}%<small>${s.got}/${s.avail} pts</small></span>
       </div>`,
     )
     .join('');

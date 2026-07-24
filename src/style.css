@@ -408,20 +408,35 @@ strong {
     transform: translate(30px, -30px) scale(1.1);
   }
 }
+/* On phones the big blurred orbs keep animating even off-screen and thrash the
+   mobile compositor (a cause of stuttery reveals). Lighten the blur and stop
+   the float so scrolling stays smooth. */
+@media (max-width: 680px) {
+  .hero__orbs span {
+    filter: blur(28px);
+    animation: none;
+  }
+}
 
 /* ============================================================
    Reveal on scroll
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  /* translate3d + will-change promote the element to its own compositor layer
+     so the fade composites cleanly (no per-frame shadow/border repaint) —
+     fixes stuttery reveals on iOS Safari. */
+  transform: translate3d(0, 30px, 0);
+  will-change: transform, opacity;
   transition:
     opacity 0.7s var(--ease),
     transform 0.7s var(--ease);
 }
 .reveal.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
+  /* Revealed once (observer unobserves) — drop the layer hint to free memory. */
+  will-change: auto;
 }
 .reveal[data-delay='1'] {
   transition-delay: 0.08s;
@@ -754,7 +769,7 @@ strong {
 }
 .answer-line {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   column-gap: 0.55rem;
   row-gap: 0.1rem;
@@ -793,6 +808,23 @@ strong {
 .answer-line__val {
   font-weight: 600;
   color: var(--ink-2);
+  /* flex-basis 0 (not auto) so a long sentence doesn't claim its full content
+     width and shove the points onto a new line — it fills the space left after
+     the tick + points and wraps in place, keeping +pts on the tick's row. */
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+/* Footnote on its own line under the answer (e.g. a wildcard that came true but
+   banked no points). Indented to line up under the answer text. */
+.answer-line__note {
+  flex-basis: 100%;
+  padding-left: calc(18px + 0.55rem);
+  color: var(--ink-4);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.3;
 }
 .answer-line--miss .answer-line__val {
   font-weight: 500;
@@ -806,7 +838,10 @@ strong {
   color: var(--ink-4);
 }
 .answer-line__pts {
-  margin-left: auto;
+  /* Fixed-width points column so it always sits on the tick's line, right of
+     the (flexible, wrapping) value. */
+  flex: 0 0 2.6rem;
+  text-align: right;
   font-weight: 700;
   font-size: 0.8rem;
   color: var(--ink-4);
@@ -814,7 +849,8 @@ strong {
 /* Names of everyone who gave this pick — wraps onto its own row, indented
    under the answer so grouped piles ("Liverpool — eight of them") read cleanly. */
 .answer-line__who {
-  flex-basis: 100%;
+  flex: 0 0 100%;
+  width: 100%;
   padding-left: calc(18px + 0.55rem);
   color: var(--ink-4);
   font-size: 0.78rem;
@@ -1161,15 +1197,18 @@ strong {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.95rem;
-  min-width: 3.2rem;
+  min-width: 3.6rem;
   text-align: right;
   color: var(--ink);
+  line-height: 1.1;
 }
 .qr__n small {
+  display: block;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--ink-4);
+  white-space: nowrap;
 }
 .qr__n.is-zero {
   color: var(--ink-4);
