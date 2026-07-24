@@ -17,23 +17,21 @@ tracks remaining polish and future ideas. Nothing here is blocking.
 - GitHub Pages deploy via Actions.
 - Privacy: entire `data/` folder git-ignored (raw CSV has emails); only
   derived, email-free JSON committed under `src/data/`.
+- Copy review — read every line in `src/content.js` for Fred's voice.
+- Leaderboard sanity check — computed table (Lucas 14; Eoin / Fred / Oscar
+  tied on 13) confirmed against the manual tally.
+- De-dupe awards vs breakdown — reviewed; Klopp / Iheanacho / +3 kept in both
+  the breakdown and Awards (intentional, Awards cross-references the breakdown).
+- Hero orbs overflow — `overflow: clip` on `.hero__orbs` so the negatively
+  offset orbs add no horizontal scroll width.
+- Social share image — `public/og-image.png` (1200×630) + Open Graph & Twitter
+  meta tags in `index.html`; links now unfurl in the group chat.
+- Favicon — `public/favicon.svg`, an FPL-purple tile with a green→cyan tick.
 
 ---
 
 ## 🔜 Near-term polish
-- [ ] **Copy review** — read every line in `src/content.js` and tweak anything
-      that doesn't sound like Fred. (You're the voice.)
-- [ ] **Leaderboard sanity check** — confirm the computed table (Lucas 14; Eoin /
-      Fred / Oscar tied on 13) matches your own tally. Edit `data/answer-key.json`
-      and re-run `npm run ingest` if any ruling should change.
-- [ ] **De-dupe awards vs breakdown** — Klopp / Iheanacho / +3 appear both in the
-      breakdown and the Awards section. Fine as-is, but could hide them from the
-      breakdown so Awards is the sole home.
-- [ ] **Hero orbs overflow** — the blurred background orbs report a few px of
-      horizontal overflow (clipped, harmless). Constrain if it ever bothers you.
-- [ ] **Social share image** — add an Open Graph `og:image` + meta tags so the
-      link unfurls nicely when shared in the group chat.
-- [ ] **Favicon** — currently none; add an FPL-style favicon.
+_(All near-term polish done — see ✅ above.)_
 
 ## 📊 More visualisations (optional)
 - [ ] **Points-by-category** per player (small multiples, single hue — avoids the

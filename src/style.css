@@ -367,6 +367,7 @@ strong {
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: clip; /* orbs sit at negative offsets; clip so they add no scroll width */
 }
 .hero__orbs span {
   position: absolute;
