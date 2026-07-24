@@ -113,7 +113,7 @@ export function statFor(slug, key) {
   if (SLUG_SIGNING.has(slug)) {
     const s = SIGNING_STATS[key];
     if (!s || s.starts == null || s.ga == null) return null;
-    return `starts: ${s.starts}, G+A: ${s.ga}`;
+    return `${s.starts} starts · ${s.ga} G+A`;
   }
   return null;
 }
