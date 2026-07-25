@@ -56,6 +56,10 @@
   --shadow-glow: 0 0 40px -8px #00ff8760;
   --maxw: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* --ease is a quint-out: ~half the distance is covered in the first 10% of
+     the duration. Great for small UI moves, but on a long fade-up it reads as
+     a jump followed by a crawl, so reveals use a gentler curve. */
+  --ease-reveal: cubic-bezier(0.25, 0.6, 0.35, 1);
 }
 
 /* ============================================================
@@ -416,6 +420,12 @@ strong {
     filter: blur(28px);
     animation: none;
   }
+  /* Blurring the backdrop of the badge means re-sampling the blurred orbs behind
+     it on every scroll frame the hero is on screen — i.e. exactly while the
+     first reveals are running. The border alone reads fine without it. */
+  .hero__badge {
+    backdrop-filter: none;
+  }
 }
 
 /* ============================================================
@@ -426,16 +436,21 @@ strong {
   /* translate3d + will-change promote the element to its own compositor layer
      so the fade composites cleanly (no per-frame shadow/border repaint) —
      fixes stuttery reveals on iOS Safari. */
-  transform: translate3d(0, 30px, 0);
+  transform: translate3d(0, 16px, 0);
   will-change: transform, opacity;
   transition:
-    opacity 0.7s var(--ease),
-    transform 0.7s var(--ease);
+    opacity 0.5s var(--ease-reveal),
+    transform 0.5s var(--ease-reveal);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  /* Revealed once (observer unobserves) — drop the layer hint to free memory. */
+}
+/* Drop the layer hint to free memory — but only once the motion has finished
+   (setupReveal adds this on transitionend). Clearing will-change inside
+   .is-visible tore the compositing layer down in the very style change that
+   starts the transition, which made WebKit skip straight to the end state. */
+.reveal.is-done {
   will-change: auto;
 }
 .reveal[data-delay='1'] {

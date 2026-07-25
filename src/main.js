@@ -587,14 +587,24 @@ function render() {
     footer(),
   ].join('');
 
-  setupReveal();
-  setupCountUps();
-  setupBars();
-  setupFills();
-  setupGridReveal();
-  setupProgress();
-  setupScrollspy();
-  setupMatrixTooltip();
+  // Wait for one painted frame before wiring the observers up. A transition only
+  // runs if its start style was actually rendered, and IntersectionObserver
+  // reports anything already on screen on its first callback — so setting these
+  // up in the same task as the innerHTML above meant the blocks in the opening
+  // viewport were flipped to .is-visible before the browser had ever painted
+  // their opacity:0 state, and they appeared with no animation at all.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      setupReveal();
+      setupCountUps();
+      setupBars();
+      setupFills();
+      setupGridReveal();
+      setupProgress();
+      setupScrollspy();
+      setupMatrixTooltip();
+    });
+  });
 }
 
 render();

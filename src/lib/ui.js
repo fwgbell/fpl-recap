@@ -4,21 +4,35 @@
 export function setupReveal(root = document) {
   const els = root.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
-    els.forEach((el) => el.classList.add('is-visible'));
+    els.forEach((el) => el.classList.add('is-visible', 'is-done'));
     return;
   }
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
+        if (!e.isIntersecting) continue;
+        const el = e.target;
+        el.classList.add('is-visible');
+        // Release the compositor layer only after the motion ends (see .is-done).
+        el.addEventListener('transitionend', () => el.classList.add('is-done'), {
+          once: true,
+        });
+        io.unobserve(el);
       }
     },
-    { threshold: 0.14, rootMargin: '0px 0px -8% 0px' },
+    // threshold 0 + a bottom inset fires as soon as the top edge is a little way
+    // up the screen. A percentage threshold fires late for blocks that are tall
+    // relative to a phone viewport, so on mobile the reveal only started once
+    // the block was already well in view — mid momentum-scroll, where it reads
+    // as a jump rather than an animation.
+    { threshold: 0, rootMargin: '0px 0px -10% 0px' },
   );
-  els.forEach((el) => io.observe(el));
+  els.forEach((el) => {
+    // Already visible in the markup (the hero) — never transitions, so it would
+    // hold its will-change layer forever waiting for a transitionend.
+    if (el.classList.contains('is-visible')) el.classList.add('is-done');
+    else io.observe(el);
+  });
 }
 
 /** Count a number up from 0 when it scrolls into view. */
