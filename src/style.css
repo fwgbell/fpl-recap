@@ -58,8 +58,14 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   /* --ease is a quint-out: ~half the distance is covered in the first 10% of
      the duration. Great for small UI moves, but on a long fade-up it reads as
-     a jump followed by a crawl, so reveals use a gentler curve. */
-  --ease-reveal: cubic-bezier(0.25, 0.6, 0.35, 1);
+     a jump followed by a crawl, so reveals use gentler curves of their own. */
+  --ease-reveal: cubic-bezier(0.22, 0.5, 0.3, 1);
+  /* Opacity gets a separate, much more even curve. On a shared ease-out alpha
+     reaches ~90% in the first third of the move, so the element is already
+     solid for most of its travel and reads as a slide rather than a fade;
+     this one is only ~65% through at the halfway point. */
+  --ease-fade: cubic-bezier(0.4, 0.06, 0.4, 1);
+  --reveal-dur: 0.7s;
 }
 
 /* ============================================================
@@ -436,11 +442,20 @@ strong {
   /* translate3d + will-change promote the element to its own compositor layer
      so the fade composites cleanly (no per-frame shadow/border repaint) —
      fixes stuttery reveals on iOS Safari. */
-  transform: translate3d(0, 16px, 0);
+  transform: translate3d(0, 18px, 0);
   will-change: transform, opacity;
+}
+/* Scoped to :not(.is-done) so this outranks the plain `.card` rule further down
+   the file. Components that declare their own `transition` for hover sit at the
+   same specificity as `.reveal` and simply win on source order, which meant a
+   revealing card ran on the card's hover transition: opacity wasn't in that
+   property list at all, so it snapped from 0 to 1 while the transform slid on
+   the fast quint --ease. Once .is-done lands the component takes its transition
+   back for hover. */
+.reveal:not(.is-done) {
   transition:
-    opacity 0.5s var(--ease-reveal),
-    transform 0.5s var(--ease-reveal);
+    opacity var(--reveal-dur) var(--ease-fade),
+    transform var(--reveal-dur) var(--ease-reveal);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -763,8 +778,14 @@ strong {
     border-color 0.25s;
 }
 .card:hover {
-  transform: translateY(-4px);
   border-color: var(--line-strong);
+}
+/* Every .card is also a .reveal, and this rule outranks `.reveal.is-visible` on
+   source order — so a card that revealed under a resting cursor (common when
+   scrolling by wheel) had its travel hijacked to -4px and never moved. Hold the
+   lift back until the reveal has settled. */
+.card.is-done:hover {
+  transform: translateY(-4px);
 }
 .card__q {
   font-family: var(--font-display);
