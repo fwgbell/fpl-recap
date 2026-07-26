@@ -25,7 +25,9 @@ tracks remaining polish and future ideas. Nothing here is blocking.
 - Hero orbs overflow — `overflow: clip` on `.hero__orbs` so the negatively
   offset orbs add no horizontal scroll width.
 - Social share image — `public/og-image.png` (1200×630) + Open Graph & Twitter
-  meta tags in `index.html`; links now unfurl in the group chat.
+  meta tags in `index.html`; links now unfurl in the group chat. Source lives at
+  `scripts/og-image.svg`; re-render with a headless browser screenshot at
+  1200×630. Keep it spoiler-free — no winner name, no final points.
 - Favicon — `public/favicon.svg`, an FPL-purple tile with a green→cyan tick.
 
 ---

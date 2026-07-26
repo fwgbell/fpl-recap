@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="-10%" r="120%">
+      <stop offset="0" stop-color="#52005b"/>
+      <stop offset="0.45" stop-color="#37003c"/>
+      <stop offset="1" stop-color="#200023"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ff87"/>
+      <stop offset="1" stop-color="#04f5ff"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="0.6" stop-color="#ffc900"/>
+      <stop offset="1" stop-color="#ff9d00"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="60"/></filter>
+    <style>
+      text { font-family: 'Archivo', 'Segoe UI', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- soft brand orbs -->
+  <circle cx="120" cy="120" r="180" fill="#00ff87" opacity="0.16" filter="url(#blur)"/>
+  <circle cx="1080" cy="540" r="160" fill="#ff2882" opacity="0.16" filter="url(#blur)"/>
+
+  <!-- badge -->
+  <g transform="translate(90 96)">
+    <rect x="0" y="0" width="300" height="46" rx="23" fill="none" stroke="#ffffff33"/>
+    <circle cx="27" cy="23" r="5" fill="#00ff87"/>
+    <text x="46" y="31" fill="#e9d9ef" font-size="18" font-weight="700"
+          letter-spacing="4" text-transform="uppercase">2025/26 SEASON RECAP</text>
+  </g>
+
+  <!-- headline -->
+  <text x="88" y="290" font-size="104" font-weight="900" fill="#ffffff" letter-spacing="-2">HOW DID OUR</text>
+  <text x="88" y="400" font-size="104" font-weight="900" letter-spacing="-2" fill="url(#accent)">PREDICTIONS</text>
+  <text x="88" y="510" font-size="104" font-weight="900" fill="#ffffff" letter-spacing="-2">DO?</text>
+
+  <!-- teaser pill (no spoilers) -->
+  <g transform="translate(360 476)">
+    <rect x="0" y="0" width="378" height="60" rx="30" fill="#ffffff10" stroke="#ffffff26"/>
+    <text x="28" y="39" font-size="26" font-weight="700">
+      <tspan fill="#b79cc2">Decided by&#160;&#160;</tspan><tspan fill="url(#gold)">a single point</tspan>
+    </text>
+  </g>
+
+  <!-- stat block, right -->
+  <g transform="translate(940 210)" text-anchor="middle" font-weight="900">
+    <text x="0" y="0" font-size="120" fill="url(#accent)">11</text>
+    <text x="0" y="40" font-size="22" font-weight="700" fill="#b79cc2" letter-spacing="2">PREDICTORS</text>
+    <text x="0" y="140" font-size="120" fill="#ffc900">31</text>
+    <text x="0" y="180" font-size="22" font-weight="700" fill="#b79cc2" letter-spacing="2">PREDICTIONS</text>
+  </g>
+</svg>
