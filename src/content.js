@@ -164,7 +164,7 @@ export const moreData = {
   lead: 'The story is told. But some of you will want to see the working. Three ways of slicing the same season.',
   categories: {
     title: 'Where everyone scored',
-    lead: 'Points by category, one panel per predictor, best to worst. Nobody was strong everywhere - Fred ran away with the Fantasy questions, while Lucas’s title-winning +3 wildcard is folded into his Prem bar, which is why it towers over the rest.',
+    lead: 'Points by category, one panel per predictor, best to worst. Nobody was strong everywhere. Lucas’s title-winning +3 wildcard is folded into his Prem bar, which is why it towers over the rest.',
   },
   scatter: {
     title: 'Accuracy vs boldness',
@@ -172,7 +172,7 @@ export const moreData = {
   },
   questions: {
     title: 'Hardest & easiest questions',
-    lead: 'Every question ranked by the share of its points the room actually banked - awarded out of available, so partial credit counts. The Golden Boot was a gimme; the Top 4 was brutal but not a whitewash; naming the actual champions, or the first manager sacked, beat everyone for nothing.',
+    lead: 'Every question ranked by the share of its points that we actually banked, out of how many were available, so partial credit counts. The Golden Boot was a gimme; the Top 4 was brutal but not a whitewash; naming the actual champions, or the first manager sacked, a step too far this time.',
   },
 };
 
